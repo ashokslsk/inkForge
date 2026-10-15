@@ -1,0 +1,8 @@
+#!/bin/sh
+'''exec' "/Users/ashok/Downloads/New books to go to pocketdeck/InkForge/.venv/bin/python3.12" "$0" "$@"
+' '''
+import sys
+from PySide6.scripts.pyside_tool import qmlcachegen
+if __name__ == '__main__':
+    sys.argv[0] = sys.argv[0].removesuffix('.exe')
+    sys.exit(qmlcachegen())

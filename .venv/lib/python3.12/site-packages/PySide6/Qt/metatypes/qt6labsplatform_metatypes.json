@@ -1,0 +1,3498 @@
+[
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "ColorDialog"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "256"
+                    },
+                    {
+                        "name": "QML.Extended",
+                        "value": "QColorDialogOptions"
+                    },
+                    {
+                        "name": "QML.ExtensionIsNamespace",
+                        "value": "true"
+                    }
+                ],
+                "className": "QQuickLabsPlatformColorDialog",
+                "lineNumber": 27,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "lineNumber": 33,
+                        "name": "color",
+                        "notify": "colorChanged",
+                        "override": false,
+                        "read": "color",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setColor"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 1,
+                        "lineNumber": 34,
+                        "name": "currentColor",
+                        "notify": "currentColorChanged",
+                        "override": false,
+                        "read": "currentColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setCurrentColor"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 2,
+                        "lineNumber": 35,
+                        "name": "options",
+                        "notify": "optionsChanged",
+                        "override": false,
+                        "read": "options",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColorDialogOptions::ColorDialogOptions",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setOptions"
+                    }
+                ],
+                "qualifiedClassName": "QQuickLabsPlatformColorDialog",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "lineNumber": 50,
+                        "name": "colorChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "lineNumber": 51,
+                        "name": "currentColorChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 2,
+                        "lineNumber": 52,
+                        "name": "optionsChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QQuickLabsPlatformDialog"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquicklabsplatformcolordialog_p.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "Dialog"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "256"
+                    },
+                    {
+                        "name": "QML.Creatable",
+                        "value": "false"
+                    },
+                    {
+                        "name": "QML.UncreatableReason",
+                        "value": "Dialog is an abstract base class"
+                    },
+                    {
+                        "name": "DefaultProperty",
+                        "value": "data"
+                    }
+                ],
+                "className": "QQuickLabsPlatformDialog",
+                "enums": [
+                    {
+                        "isClass": false,
+                        "isFlag": false,
+                        "lineNumber": 71,
+                        "name": "StandardCode",
+                        "values": [
+                            "Rejected",
+                            "Accepted"
+                        ]
+                    }
+                ],
+                "interfaces": [
+                    [
+                        {
+                            "className": "QQmlParserStatus",
+                            "id": "\"org.qt-project.Qt.QQmlParserStatus\""
+                        }
+                    ]
+                ],
+                "lineNumber": 32,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "lineNumber": 39,
+                        "name": "data",
+                        "override": false,
+                        "read": "data",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QQmlListProperty<QObject>",
+                        "user": false,
+                        "virtual": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 1,
+                        "lineNumber": 40,
+                        "name": "parentWindow",
+                        "notify": "parentWindowChanged",
+                        "override": false,
+                        "read": "parentWindow",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QWindow*",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setParentWindow"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 2,
+                        "lineNumber": 41,
+                        "name": "title",
+                        "notify": "titleChanged",
+                        "override": false,
+                        "read": "title",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setTitle"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 3,
+                        "lineNumber": 42,
+                        "name": "flags",
+                        "notify": "flagsChanged",
+                        "override": false,
+                        "read": "flags",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "Qt::WindowFlags",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setFlags"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 4,
+                        "lineNumber": 43,
+                        "name": "modality",
+                        "notify": "modalityChanged",
+                        "override": false,
+                        "read": "modality",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "Qt::WindowModality",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setModality"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 5,
+                        "lineNumber": 44,
+                        "name": "visible",
+                        "notify": "visibleChanged",
+                        "override": false,
+                        "read": "isVisible",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setVisible"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 6,
+                        "lineNumber": 45,
+                        "name": "result",
+                        "notify": "resultChanged",
+                        "override": false,
+                        "read": "result",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setResult"
+                    }
+                ],
+                "qualifiedClassName": "QQuickLabsPlatformDialog",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "lineNumber": 85,
+                        "name": "accepted",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "lineNumber": 86,
+                        "name": "rejected",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 2,
+                        "lineNumber": 87,
+                        "name": "parentWindowChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 3,
+                        "lineNumber": 88,
+                        "name": "titleChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 4,
+                        "lineNumber": 89,
+                        "name": "flagsChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 5,
+                        "lineNumber": 90,
+                        "name": "modalityChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 6,
+                        "lineNumber": 91,
+                        "name": "visibleChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 7,
+                        "lineNumber": 92,
+                        "name": "resultChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "public",
+                        "index": 8,
+                        "lineNumber": 78,
+                        "name": "open",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 9,
+                        "lineNumber": 79,
+                        "name": "close",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 10,
+                        "lineNumber": 80,
+                        "name": "accept",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 11,
+                        "lineNumber": 81,
+                        "name": "reject",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "result",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 12,
+                        "lineNumber": 82,
+                        "name": "done",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    },
+                    {
+                        "access": "public",
+                        "name": "QQmlParserStatus"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquicklabsplatformdialog_p.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "FileDialog"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "256"
+                    },
+                    {
+                        "name": "QML.Extended",
+                        "value": "QFileDialogOptions"
+                    },
+                    {
+                        "name": "QML.ExtensionIsNamespace",
+                        "value": "true"
+                    }
+                ],
+                "className": "QQuickLabsPlatformFileDialog",
+                "enums": [
+                    {
+                        "isClass": false,
+                        "isFlag": false,
+                        "lineNumber": 51,
+                        "name": "FileMode",
+                        "values": [
+                            "OpenFile",
+                            "OpenFiles",
+                            "SaveFile"
+                        ]
+                    }
+                ],
+                "lineNumber": 29,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "lineNumber": 35,
+                        "name": "fileMode",
+                        "notify": "fileModeChanged",
+                        "override": false,
+                        "read": "fileMode",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "FileMode",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setFileMode"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 1,
+                        "lineNumber": 36,
+                        "name": "file",
+                        "notify": "fileChanged",
+                        "override": false,
+                        "read": "file",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QUrl",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setFile"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 2,
+                        "lineNumber": 37,
+                        "name": "files",
+                        "notify": "filesChanged",
+                        "override": false,
+                        "read": "files",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QList<QUrl>",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setFiles"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 3,
+                        "lineNumber": 38,
+                        "name": "currentFile",
+                        "notify": "currentFileChanged",
+                        "override": false,
+                        "read": "currentFile",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QUrl",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setCurrentFile"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 4,
+                        "lineNumber": 39,
+                        "name": "currentFiles",
+                        "notify": "currentFilesChanged",
+                        "override": false,
+                        "read": "currentFiles",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QList<QUrl>",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setCurrentFiles"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 5,
+                        "lineNumber": 40,
+                        "name": "folder",
+                        "notify": "folderChanged",
+                        "override": false,
+                        "read": "folder",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QUrl",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setFolder"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 6,
+                        "lineNumber": 41,
+                        "name": "options",
+                        "notify": "optionsChanged",
+                        "override": false,
+                        "read": "options",
+                        "required": false,
+                        "reset": "resetOptions",
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QFileDialogOptions::FileDialogOptions",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setOptions"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 7,
+                        "lineNumber": 42,
+                        "name": "nameFilters",
+                        "notify": "nameFiltersChanged",
+                        "override": false,
+                        "read": "nameFilters",
+                        "required": false,
+                        "reset": "resetNameFilters",
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QStringList",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setNameFilters"
+                    },
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": true,
+                        "index": 8,
+                        "lineNumber": 43,
+                        "name": "selectedNameFilter",
+                        "override": false,
+                        "read": "selectedNameFilter",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QQuickLabsPlatformFileNameFilter*",
+                        "user": false,
+                        "virtual": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 9,
+                        "lineNumber": 44,
+                        "name": "defaultSuffix",
+                        "notify": "defaultSuffixChanged",
+                        "override": false,
+                        "read": "defaultSuffix",
+                        "required": false,
+                        "reset": "resetDefaultSuffix",
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setDefaultSuffix"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 10,
+                        "lineNumber": 45,
+                        "name": "acceptLabel",
+                        "notify": "acceptLabelChanged",
+                        "override": false,
+                        "read": "acceptLabel",
+                        "required": false,
+                        "reset": "resetAcceptLabel",
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setAcceptLabel"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 11,
+                        "lineNumber": 46,
+                        "name": "rejectLabel",
+                        "notify": "rejectLabelChanged",
+                        "override": false,
+                        "read": "rejectLabel",
+                        "required": false,
+                        "reset": "resetRejectLabel",
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setRejectLabel"
+                    }
+                ],
+                "qualifiedClassName": "QQuickLabsPlatformFileDialog",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "lineNumber": 99,
+                        "name": "fileModeChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "lineNumber": 100,
+                        "name": "fileChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 2,
+                        "lineNumber": 101,
+                        "name": "filesChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 3,
+                        "lineNumber": 102,
+                        "name": "currentFileChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 4,
+                        "lineNumber": 103,
+                        "name": "currentFilesChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 5,
+                        "lineNumber": 104,
+                        "name": "folderChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 6,
+                        "lineNumber": 105,
+                        "name": "optionsChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 7,
+                        "lineNumber": 106,
+                        "name": "nameFiltersChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 8,
+                        "lineNumber": 107,
+                        "name": "defaultSuffixChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 9,
+                        "lineNumber": 108,
+                        "name": "acceptLabelChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 10,
+                        "lineNumber": 109,
+                        "name": "rejectLabelChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QQuickLabsPlatformDialog"
+                    }
+                ]
+            },
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "anonymous"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "256"
+                    }
+                ],
+                "className": "QQuickLabsPlatformFileNameFilter",
+                "lineNumber": 129,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "lineNumber": 134,
+                        "name": "index",
+                        "notify": "indexChanged",
+                        "override": false,
+                        "read": "index",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setIndex"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 1,
+                        "lineNumber": 135,
+                        "name": "name",
+                        "notify": "nameChanged",
+                        "override": false,
+                        "read": "name",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "virtual": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 2,
+                        "lineNumber": 136,
+                        "name": "extensions",
+                        "notify": "extensionsChanged",
+                        "override": false,
+                        "read": "extensions",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QStringList",
+                        "user": false,
+                        "virtual": false
+                    }
+                ],
+                "qualifiedClassName": "QQuickLabsPlatformFileNameFilter",
+                "signals": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 0,
+                        "lineNumber": 153,
+                        "name": "indexChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 1,
+                        "lineNumber": 154,
+                        "name": "nameChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "extensions",
+                                "type": "QStringList"
+                            }
+                        ],
+                        "index": 2,
+                        "lineNumber": 155,
+                        "name": "extensionsChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquicklabsplatformfiledialog_p.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "FolderDialog"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "256"
+                    },
+                    {
+                        "name": "QML.Extended",
+                        "value": "QFileDialogOptions"
+                    },
+                    {
+                        "name": "QML.ExtensionIsNamespace",
+                        "value": "true"
+                    }
+                ],
+                "className": "QQuickLabsPlatformFolderDialog",
+                "lineNumber": 27,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "lineNumber": 33,
+                        "name": "folder",
+                        "notify": "folderChanged",
+                        "override": false,
+                        "read": "folder",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QUrl",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setFolder"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 1,
+                        "lineNumber": 34,
+                        "name": "currentFolder",
+                        "notify": "currentFolderChanged",
+                        "override": false,
+                        "read": "currentFolder",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QUrl",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setCurrentFolder"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 2,
+                        "lineNumber": 35,
+                        "name": "options",
+                        "notify": "optionsChanged",
+                        "override": false,
+                        "read": "options",
+                        "required": false,
+                        "reset": "resetOptions",
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QFileDialogOptions::FileDialogOptions",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setOptions"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 3,
+                        "lineNumber": 36,
+                        "name": "acceptLabel",
+                        "notify": "acceptLabelChanged",
+                        "override": false,
+                        "read": "acceptLabel",
+                        "required": false,
+                        "reset": "resetAcceptLabel",
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setAcceptLabel"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 4,
+                        "lineNumber": 37,
+                        "name": "rejectLabel",
+                        "notify": "rejectLabelChanged",
+                        "override": false,
+                        "read": "rejectLabel",
+                        "required": false,
+                        "reset": "resetRejectLabel",
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setRejectLabel"
+                    }
+                ],
+                "qualifiedClassName": "QQuickLabsPlatformFolderDialog",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "lineNumber": 61,
+                        "name": "folderChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "lineNumber": 62,
+                        "name": "currentFolderChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 2,
+                        "lineNumber": 63,
+                        "name": "optionsChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 3,
+                        "lineNumber": 64,
+                        "name": "acceptLabelChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 4,
+                        "lineNumber": 65,
+                        "name": "rejectLabelChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QQuickLabsPlatformDialog"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquicklabsplatformfolderdialog_p.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "FontDialog"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "256"
+                    },
+                    {
+                        "name": "QML.Extended",
+                        "value": "QFontDialogOptions"
+                    },
+                    {
+                        "name": "QML.ExtensionIsNamespace",
+                        "value": "true"
+                    }
+                ],
+                "className": "QQuickLabsPlatformFontDialog",
+                "lineNumber": 27,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "lineNumber": 33,
+                        "name": "font",
+                        "notify": "fontChanged",
+                        "override": false,
+                        "read": "font",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QFont",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setFont"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 1,
+                        "lineNumber": 34,
+                        "name": "currentFont",
+                        "notify": "currentFontChanged",
+                        "override": false,
+                        "read": "currentFont",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QFont",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setCurrentFont"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 2,
+                        "lineNumber": 35,
+                        "name": "options",
+                        "notify": "optionsChanged",
+                        "override": false,
+                        "read": "options",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QFontDialogOptions::FontDialogOptions",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setOptions"
+                    }
+                ],
+                "qualifiedClassName": "QQuickLabsPlatformFontDialog",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "lineNumber": 50,
+                        "name": "fontChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "lineNumber": 51,
+                        "name": "currentFontChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 2,
+                        "lineNumber": 52,
+                        "name": "optionsChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QQuickLabsPlatformDialog"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquicklabsplatformfontdialog_p.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "anonymous"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "256"
+                    }
+                ],
+                "className": "QQuickLabsPlatformIcon",
+                "gadget": true,
+                "lineNumber": 29,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "lineNumber": 34,
+                        "name": "source",
+                        "override": false,
+                        "read": "source",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QUrl",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setSource"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 1,
+                        "lineNumber": 35,
+                        "name": "name",
+                        "override": false,
+                        "read": "name",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setName"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 2,
+                        "lineNumber": 36,
+                        "name": "mask",
+                        "override": false,
+                        "read": "isMask",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setMask"
+                    }
+                ],
+                "qualifiedClassName": "QQuickLabsPlatformIcon"
+            }
+        ],
+        "inputFile": "qquicklabsplatformicon_p.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "Menu"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "256"
+                    },
+                    {
+                        "name": "QML.Extended",
+                        "value": "QPlatformMenu"
+                    },
+                    {
+                        "name": "QML.ExtensionIsNamespace",
+                        "value": "true"
+                    },
+                    {
+                        "name": "DefaultProperty",
+                        "value": "data"
+                    }
+                ],
+                "className": "QQuickLabsPlatformMenu",
+                "interfaces": [
+                    [
+                        {
+                            "className": "QQmlParserStatus",
+                            "id": "\"org.qt-project.Qt.QQmlParserStatus\""
+                        }
+                    ]
+                ],
+                "lineNumber": 43,
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "item",
+                                "type": "QQuickLabsPlatformMenuItem*"
+                            }
+                        ],
+                        "index": 16,
+                        "lineNumber": 113,
+                        "name": "addItem",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "int"
+                            },
+                            {
+                                "name": "item",
+                                "type": "QQuickLabsPlatformMenuItem*"
+                            }
+                        ],
+                        "index": 17,
+                        "lineNumber": 114,
+                        "name": "insertItem",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "item",
+                                "type": "QQuickLabsPlatformMenuItem*"
+                            }
+                        ],
+                        "index": 18,
+                        "lineNumber": 115,
+                        "name": "removeItem",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "menu",
+                                "type": "QQuickLabsPlatformMenu*"
+                            }
+                        ],
+                        "index": 19,
+                        "lineNumber": 117,
+                        "name": "addMenu",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "int"
+                            },
+                            {
+                                "name": "menu",
+                                "type": "QQuickLabsPlatformMenu*"
+                            }
+                        ],
+                        "index": 20,
+                        "lineNumber": 118,
+                        "name": "insertMenu",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "menu",
+                                "type": "QQuickLabsPlatformMenu*"
+                            }
+                        ],
+                        "index": 21,
+                        "lineNumber": 119,
+                        "name": "removeMenu",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 22,
+                        "lineNumber": 121,
+                        "name": "clear",
+                        "returnType": "void"
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "lineNumber": 50,
+                        "name": "data",
+                        "override": false,
+                        "read": "data",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QQmlListProperty<QObject>",
+                        "user": false,
+                        "virtual": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 1,
+                        "lineNumber": 51,
+                        "name": "items",
+                        "notify": "itemsChanged",
+                        "override": false,
+                        "read": "items",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QQmlListProperty<QQuickLabsPlatformMenuItem>",
+                        "user": false,
+                        "virtual": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 2,
+                        "lineNumber": 52,
+                        "name": "menuBar",
+                        "notify": "menuBarChanged",
+                        "override": false,
+                        "read": "menuBar",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QQuickLabsPlatformMenuBar*",
+                        "user": false,
+                        "virtual": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 3,
+                        "lineNumber": 53,
+                        "name": "parentMenu",
+                        "notify": "parentMenuChanged",
+                        "override": false,
+                        "read": "parentMenu",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QQuickLabsPlatformMenu*",
+                        "user": false,
+                        "virtual": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 4,
+                        "lineNumber": 55,
+                        "name": "systemTrayIcon",
+                        "notify": "systemTrayIconChanged",
+                        "override": false,
+                        "read": "systemTrayIcon",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QQuickLabsPlatformSystemTrayIcon*",
+                        "user": false,
+                        "virtual": false
+                    },
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": true,
+                        "index": 5,
+                        "lineNumber": 57,
+                        "name": "menuItem",
+                        "override": false,
+                        "read": "menuItem",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QQuickLabsPlatformMenuItem*",
+                        "user": false,
+                        "virtual": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 6,
+                        "lineNumber": 58,
+                        "name": "enabled",
+                        "notify": "enabledChanged",
+                        "override": false,
+                        "read": "isEnabled",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setEnabled"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 7,
+                        "lineNumber": 59,
+                        "name": "visible",
+                        "notify": "visibleChanged",
+                        "override": false,
+                        "read": "isVisible",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setVisible"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 8,
+                        "lineNumber": 60,
+                        "name": "minimumWidth",
+                        "notify": "minimumWidthChanged",
+                        "override": false,
+                        "read": "minimumWidth",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setMinimumWidth"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 9,
+                        "lineNumber": 61,
+                        "name": "type",
+                        "notify": "typeChanged",
+                        "override": false,
+                        "read": "type",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QPlatformMenu::MenuType",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setType"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 10,
+                        "lineNumber": 62,
+                        "name": "title",
+                        "notify": "titleChanged",
+                        "override": false,
+                        "read": "title",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setTitle"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 11,
+                        "lineNumber": 63,
+                        "name": "font",
+                        "notify": "fontChanged",
+                        "override": false,
+                        "read": "font",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QFont",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setFont"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 12,
+                        "lineNumber": 64,
+                        "name": "icon",
+                        "notify": "iconChanged",
+                        "override": false,
+                        "read": "icon",
+                        "required": false,
+                        "revision": 257,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QQuickLabsPlatformIcon",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setIcon"
+                    }
+                ],
+                "qualifiedClassName": "QQuickLabsPlatformMenu",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "lineNumber": 128,
+                        "name": "aboutToShow",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "lineNumber": 129,
+                        "name": "aboutToHide",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 2,
+                        "lineNumber": 131,
+                        "name": "itemsChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 3,
+                        "lineNumber": 132,
+                        "name": "menuBarChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 4,
+                        "lineNumber": 133,
+                        "name": "parentMenuChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 5,
+                        "lineNumber": 134,
+                        "name": "systemTrayIconChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 6,
+                        "lineNumber": 135,
+                        "name": "titleChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 7,
+                        "lineNumber": 136,
+                        "name": "enabledChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 8,
+                        "lineNumber": 137,
+                        "name": "visibleChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 9,
+                        "lineNumber": 138,
+                        "name": "minimumWidthChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 10,
+                        "lineNumber": 139,
+                        "name": "fontChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 11,
+                        "lineNumber": 140,
+                        "name": "typeChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 12,
+                        "lineNumber": 141,
+                        "name": "iconChanged",
+                        "returnType": "void",
+                        "revision": 257
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "args",
+                                "type": "QQmlV4FunctionPtr"
+                            }
+                        ],
+                        "index": 13,
+                        "lineNumber": 124,
+                        "name": "open",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 14,
+                        "lineNumber": 125,
+                        "name": "close",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 15,
+                        "lineNumber": 162,
+                        "name": "updateIcon",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    },
+                    {
+                        "access": "public",
+                        "name": "QQmlParserStatus"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquicklabsplatformmenu_p.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "MenuBar"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "256"
+                    },
+                    {
+                        "name": "DefaultProperty",
+                        "value": "data"
+                    }
+                ],
+                "className": "QQuickLabsPlatformMenuBar",
+                "interfaces": [
+                    [
+                        {
+                            "className": "QQmlParserStatus",
+                            "id": "\"org.qt-project.Qt.QQmlParserStatus\""
+                        }
+                    ]
+                ],
+                "lineNumber": 31,
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "menu",
+                                "type": "QQuickLabsPlatformMenu*"
+                            }
+                        ],
+                        "index": 2,
+                        "lineNumber": 54,
+                        "name": "addMenu",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "int"
+                            },
+                            {
+                                "name": "menu",
+                                "type": "QQuickLabsPlatformMenu*"
+                            }
+                        ],
+                        "index": 3,
+                        "lineNumber": 55,
+                        "name": "insertMenu",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "menu",
+                                "type": "QQuickLabsPlatformMenu*"
+                            }
+                        ],
+                        "index": 4,
+                        "lineNumber": 56,
+                        "name": "removeMenu",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 5,
+                        "lineNumber": 57,
+                        "name": "clear",
+                        "returnType": "void"
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "lineNumber": 37,
+                        "name": "data",
+                        "override": false,
+                        "read": "data",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QQmlListProperty<QObject>",
+                        "user": false,
+                        "virtual": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 1,
+                        "lineNumber": 38,
+                        "name": "menus",
+                        "notify": "menusChanged",
+                        "override": false,
+                        "read": "menus",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QQmlListProperty<QQuickLabsPlatformMenu>",
+                        "user": false,
+                        "virtual": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 2,
+                        "lineNumber": 39,
+                        "name": "window",
+                        "notify": "windowChanged",
+                        "override": false,
+                        "read": "window",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QWindow*",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setWindow"
+                    }
+                ],
+                "qualifiedClassName": "QQuickLabsPlatformMenuBar",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "lineNumber": 60,
+                        "name": "menusChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "lineNumber": 61,
+                        "name": "windowChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    },
+                    {
+                        "access": "public",
+                        "name": "QQmlParserStatus"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquicklabsplatformmenubar_p.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "MenuItem"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "256"
+                    },
+                    {
+                        "name": "QML.Extended",
+                        "value": "QPlatformMenuItem"
+                    },
+                    {
+                        "name": "QML.ExtensionIsNamespace",
+                        "value": "true"
+                    }
+                ],
+                "className": "QQuickLabsPlatformMenuItem",
+                "interfaces": [
+                    [
+                        {
+                            "className": "QQmlParserStatus",
+                            "id": "\"org.qt-project.Qt.QQmlParserStatus\""
+                        }
+                    ]
+                ],
+                "lineNumber": 35,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "lineNumber": 42,
+                        "name": "menu",
+                        "notify": "menuChanged",
+                        "override": false,
+                        "read": "menu",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QQuickLabsPlatformMenu*",
+                        "user": false,
+                        "virtual": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 1,
+                        "lineNumber": 43,
+                        "name": "subMenu",
+                        "notify": "subMenuChanged",
+                        "override": false,
+                        "read": "subMenu",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QQuickLabsPlatformMenu*",
+                        "user": false,
+                        "virtual": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 2,
+                        "lineNumber": 44,
+                        "name": "group",
+                        "notify": "groupChanged",
+                        "override": false,
+                        "read": "group",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QQuickLabsPlatformMenuItemGroup*",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setGroup"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 3,
+                        "lineNumber": 45,
+                        "name": "enabled",
+                        "notify": "enabledChanged",
+                        "override": false,
+                        "read": "isEnabled",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setEnabled"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 4,
+                        "lineNumber": 46,
+                        "name": "visible",
+                        "notify": "visibleChanged",
+                        "override": false,
+                        "read": "isVisible",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setVisible"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 5,
+                        "lineNumber": 47,
+                        "name": "separator",
+                        "notify": "separatorChanged",
+                        "override": false,
+                        "read": "isSeparator",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setSeparator"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 6,
+                        "lineNumber": 48,
+                        "name": "checkable",
+                        "notify": "checkableChanged",
+                        "override": false,
+                        "read": "isCheckable",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setCheckable"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 7,
+                        "lineNumber": 49,
+                        "name": "checked",
+                        "notify": "checkedChanged",
+                        "override": false,
+                        "read": "isChecked",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setChecked"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 8,
+                        "lineNumber": 50,
+                        "name": "role",
+                        "notify": "roleChanged",
+                        "override": false,
+                        "read": "role",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QPlatformMenuItem::MenuRole",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setRole"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 9,
+                        "lineNumber": 51,
+                        "name": "text",
+                        "notify": "textChanged",
+                        "override": false,
+                        "read": "text",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setText"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 10,
+                        "lineNumber": 52,
+                        "name": "shortcut",
+                        "notify": "shortcutChanged",
+                        "override": false,
+                        "read": "shortcut",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QVariant",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setShortcut"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 11,
+                        "lineNumber": 53,
+                        "name": "font",
+                        "notify": "fontChanged",
+                        "override": false,
+                        "read": "font",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QFont",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setFont"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 12,
+                        "lineNumber": 54,
+                        "name": "icon",
+                        "notify": "iconChanged",
+                        "override": false,
+                        "read": "icon",
+                        "required": false,
+                        "revision": 257,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QQuickLabsPlatformIcon",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setIcon"
+                    }
+                ],
+                "qualifiedClassName": "QQuickLabsPlatformMenuItem",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "lineNumber": 107,
+                        "name": "triggered",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "lineNumber": 108,
+                        "name": "hovered",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 2,
+                        "lineNumber": 110,
+                        "name": "menuChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 3,
+                        "lineNumber": 111,
+                        "name": "subMenuChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 4,
+                        "lineNumber": 112,
+                        "name": "groupChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 5,
+                        "lineNumber": 113,
+                        "name": "enabledChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 6,
+                        "lineNumber": 114,
+                        "name": "visibleChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 7,
+                        "lineNumber": 115,
+                        "name": "separatorChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 8,
+                        "lineNumber": 116,
+                        "name": "checkableChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 9,
+                        "lineNumber": 117,
+                        "name": "checkedChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 10,
+                        "lineNumber": 118,
+                        "name": "roleChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 11,
+                        "lineNumber": 119,
+                        "name": "textChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 12,
+                        "lineNumber": 120,
+                        "name": "shortcutChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 13,
+                        "lineNumber": 121,
+                        "name": "fontChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 14,
+                        "lineNumber": 122,
+                        "name": "iconChanged",
+                        "returnType": "void",
+                        "revision": 257
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "public",
+                        "index": 15,
+                        "lineNumber": 104,
+                        "name": "toggle",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 16,
+                        "lineNumber": 132,
+                        "name": "activate",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 17,
+                        "lineNumber": 133,
+                        "name": "updateIcon",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    },
+                    {
+                        "access": "public",
+                        "name": "QQmlParserStatus"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquicklabsplatformmenuitem_p.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "MenuItemGroup"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "256"
+                    }
+                ],
+                "className": "QQuickLabsPlatformMenuItemGroup",
+                "lineNumber": 29,
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "item",
+                                "type": "QQuickLabsPlatformMenuItem*"
+                            }
+                        ],
+                        "index": 7,
+                        "lineNumber": 58,
+                        "name": "addItem",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "item",
+                                "type": "QQuickLabsPlatformMenuItem*"
+                            }
+                        ],
+                        "index": 8,
+                        "lineNumber": 59,
+                        "name": "removeItem",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 9,
+                        "lineNumber": 60,
+                        "name": "clear",
+                        "returnType": "void"
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "lineNumber": 34,
+                        "name": "enabled",
+                        "notify": "enabledChanged",
+                        "override": false,
+                        "read": "isEnabled",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setEnabled"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 1,
+                        "lineNumber": 35,
+                        "name": "visible",
+                        "notify": "visibleChanged",
+                        "override": false,
+                        "read": "isVisible",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setVisible"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 2,
+                        "lineNumber": 36,
+                        "name": "exclusive",
+                        "notify": "exclusiveChanged",
+                        "override": false,
+                        "read": "isExclusive",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setExclusive"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 3,
+                        "lineNumber": 37,
+                        "name": "checkedItem",
+                        "notify": "checkedItemChanged",
+                        "override": false,
+                        "read": "checkedItem",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QQuickLabsPlatformMenuItem*",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setCheckedItem"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 4,
+                        "lineNumber": 38,
+                        "name": "items",
+                        "notify": "itemsChanged",
+                        "override": false,
+                        "read": "items",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QQmlListProperty<QQuickLabsPlatformMenuItem>",
+                        "user": false,
+                        "virtual": false
+                    }
+                ],
+                "qualifiedClassName": "QQuickLabsPlatformMenuItemGroup",
+                "signals": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "item",
+                                "type": "QQuickLabsPlatformMenuItem*"
+                            }
+                        ],
+                        "index": 0,
+                        "lineNumber": 63,
+                        "name": "triggered",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "item",
+                                "type": "QQuickLabsPlatformMenuItem*"
+                            }
+                        ],
+                        "index": 1,
+                        "lineNumber": 64,
+                        "name": "hovered",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 2,
+                        "lineNumber": 66,
+                        "name": "enabledChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 3,
+                        "lineNumber": 67,
+                        "name": "visibleChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 4,
+                        "lineNumber": 68,
+                        "name": "exclusiveChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 5,
+                        "lineNumber": 69,
+                        "name": "checkedItemChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 6,
+                        "lineNumber": 70,
+                        "name": "itemsChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquicklabsplatformmenuitemgroup_p.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "MenuSeparator"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "256"
+                    }
+                ],
+                "className": "QQuickLabsPlatformMenuSeparator",
+                "lineNumber": 23,
+                "object": true,
+                "qualifiedClassName": "QQuickLabsPlatformMenuSeparator",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QQuickLabsPlatformMenuItem"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquicklabsplatformmenuseparator_p.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "MessageDialog"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "256"
+                    },
+                    {
+                        "name": "QML.Extended",
+                        "value": "QPlatformDialogHelper"
+                    },
+                    {
+                        "name": "QML.ExtensionIsNamespace",
+                        "value": "true"
+                    }
+                ],
+                "className": "QQuickLabsPlatformMessageDialog",
+                "lineNumber": 26,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "lineNumber": 31,
+                        "name": "text",
+                        "notify": "textChanged",
+                        "override": false,
+                        "read": "text",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setText"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 1,
+                        "lineNumber": 32,
+                        "name": "informativeText",
+                        "notify": "informativeTextChanged",
+                        "override": false,
+                        "read": "informativeText",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setInformativeText"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 2,
+                        "lineNumber": 33,
+                        "name": "detailedText",
+                        "notify": "detailedTextChanged",
+                        "override": false,
+                        "read": "detailedText",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setDetailedText"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 3,
+                        "lineNumber": 34,
+                        "name": "buttons",
+                        "notify": "buttonsChanged",
+                        "override": false,
+                        "read": "buttons",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QPlatformDialogHelper::StandardButtons",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setButtons"
+                    }
+                ],
+                "qualifiedClassName": "QQuickLabsPlatformMessageDialog",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "lineNumber": 53,
+                        "name": "textChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "lineNumber": 54,
+                        "name": "informativeTextChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 2,
+                        "lineNumber": 55,
+                        "name": "detailedTextChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 3,
+                        "lineNumber": 56,
+                        "name": "buttonsChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "button",
+                                "type": "QPlatformDialogHelper::StandardButton"
+                            }
+                        ],
+                        "index": 4,
+                        "lineNumber": 57,
+                        "name": "clicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 5,
+                        "lineNumber": 59,
+                        "name": "okClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 6,
+                        "lineNumber": 60,
+                        "name": "saveClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 7,
+                        "lineNumber": 61,
+                        "name": "saveAllClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 8,
+                        "lineNumber": 62,
+                        "name": "openClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 9,
+                        "lineNumber": 63,
+                        "name": "yesClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 10,
+                        "lineNumber": 64,
+                        "name": "yesToAllClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 11,
+                        "lineNumber": 65,
+                        "name": "noClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 12,
+                        "lineNumber": 66,
+                        "name": "noToAllClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 13,
+                        "lineNumber": 67,
+                        "name": "abortClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 14,
+                        "lineNumber": 68,
+                        "name": "retryClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 15,
+                        "lineNumber": 69,
+                        "name": "ignoreClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 16,
+                        "lineNumber": 70,
+                        "name": "closeClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 17,
+                        "lineNumber": 71,
+                        "name": "cancelClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 18,
+                        "lineNumber": 72,
+                        "name": "discardClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 19,
+                        "lineNumber": 73,
+                        "name": "helpClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 20,
+                        "lineNumber": 74,
+                        "name": "applyClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 21,
+                        "lineNumber": 75,
+                        "name": "resetClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 22,
+                        "lineNumber": 76,
+                        "name": "restoreDefaultsClicked",
+                        "returnType": "void"
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "private",
+                        "arguments": [
+                            {
+                                "name": "button",
+                                "type": "QPlatformDialogHelper::StandardButton"
+                            }
+                        ],
+                        "index": 23,
+                        "lineNumber": 83,
+                        "name": "handleClick",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QQuickLabsPlatformDialog"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquicklabsplatformmessagedialog_p.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Singleton",
+                        "value": "true"
+                    },
+                    {
+                        "name": "QML.Element",
+                        "value": "StandardPaths"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "256"
+                    },
+                    {
+                        "name": "QML.Extended",
+                        "value": "QStandardPaths"
+                    },
+                    {
+                        "name": "QML.ExtensionIsNamespace",
+                        "value": "true"
+                    }
+                ],
+                "className": "QQuickLabsPlatformStandardPaths",
+                "lineNumber": 32,
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "type",
+                                "type": "QStandardPaths::StandardLocation"
+                            }
+                        ],
+                        "index": 0,
+                        "lineNumber": 45,
+                        "name": "displayName",
+                        "returnType": "QString"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "executableName",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "paths",
+                                "type": "QStringList"
+                            }
+                        ],
+                        "index": 1,
+                        "lineNumber": 46,
+                        "name": "findExecutable",
+                        "returnType": "QUrl"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "executableName",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 2,
+                        "isCloned": true,
+                        "lineNumber": 46,
+                        "name": "findExecutable",
+                        "returnType": "QUrl"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "type",
+                                "type": "QStandardPaths::StandardLocation"
+                            },
+                            {
+                                "name": "fileName",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "options",
+                                "type": "QStandardPaths::LocateOptions"
+                            }
+                        ],
+                        "index": 3,
+                        "lineNumber": 47,
+                        "name": "locate",
+                        "returnType": "QUrl"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "type",
+                                "type": "QStandardPaths::StandardLocation"
+                            },
+                            {
+                                "name": "fileName",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 4,
+                        "isCloned": true,
+                        "lineNumber": 47,
+                        "name": "locate",
+                        "returnType": "QUrl"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "type",
+                                "type": "QStandardPaths::StandardLocation"
+                            },
+                            {
+                                "name": "fileName",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "options",
+                                "type": "QStandardPaths::LocateOptions"
+                            }
+                        ],
+                        "index": 5,
+                        "lineNumber": 48,
+                        "name": "locateAll",
+                        "returnType": "QList<QUrl>"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "type",
+                                "type": "QStandardPaths::StandardLocation"
+                            },
+                            {
+                                "name": "fileName",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 6,
+                        "isCloned": true,
+                        "lineNumber": 48,
+                        "name": "locateAll",
+                        "returnType": "QList<QUrl>"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "testMode",
+                                "type": "bool"
+                            }
+                        ],
+                        "index": 7,
+                        "lineNumber": 49,
+                        "name": "setTestModeEnabled",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "type",
+                                "type": "QStandardPaths::StandardLocation"
+                            }
+                        ],
+                        "index": 8,
+                        "lineNumber": 50,
+                        "name": "standardLocations",
+                        "returnType": "QList<QUrl>"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "type",
+                                "type": "QStandardPaths::StandardLocation"
+                            }
+                        ],
+                        "index": 9,
+                        "lineNumber": 51,
+                        "name": "writableLocation",
+                        "returnType": "QUrl"
+                    }
+                ],
+                "object": true,
+                "qualifiedClassName": "QQuickLabsPlatformStandardPaths",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquicklabsplatformstandardpaths_p.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "SystemTrayIcon"
+                    },
+                    {
+                        "name": "QML.AddedInVersion",
+                        "value": "256"
+                    },
+                    {
+                        "name": "QML.Extended",
+                        "value": "QPlatformSystemTrayIcon"
+                    },
+                    {
+                        "name": "QML.ExtensionIsNamespace",
+                        "value": "true"
+                    }
+                ],
+                "className": "QQuickLabsPlatformSystemTrayIcon",
+                "interfaces": [
+                    [
+                        {
+                            "className": "QQmlParserStatus",
+                            "id": "\"org.qt-project.Qt.QQmlParserStatus\""
+                        }
+                    ]
+                ],
+                "lineNumber": 34,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "lineNumber": 41,
+                        "name": "available",
+                        "override": false,
+                        "read": "isAvailable",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "virtual": false
+                    },
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": true,
+                        "index": 1,
+                        "lineNumber": 42,
+                        "name": "supportsMessages",
+                        "override": false,
+                        "read": "supportsMessages",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "virtual": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 2,
+                        "lineNumber": 43,
+                        "name": "visible",
+                        "notify": "visibleChanged",
+                        "override": false,
+                        "read": "isVisible",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setVisible"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 3,
+                        "lineNumber": 44,
+                        "name": "tooltip",
+                        "notify": "tooltipChanged",
+                        "override": false,
+                        "read": "tooltip",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setTooltip"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 4,
+                        "lineNumber": 45,
+                        "name": "menu",
+                        "notify": "menuChanged",
+                        "override": false,
+                        "read": "menu",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QQuickLabsPlatformMenu*",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setMenu"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 5,
+                        "lineNumber": 46,
+                        "name": "geometry",
+                        "notify": "geometryChanged",
+                        "override": false,
+                        "read": "geometry",
+                        "required": false,
+                        "revision": 257,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QRect",
+                        "user": false,
+                        "virtual": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 6,
+                        "lineNumber": 47,
+                        "name": "icon",
+                        "notify": "iconChanged",
+                        "override": false,
+                        "read": "icon",
+                        "required": false,
+                        "revision": 257,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QQuickLabsPlatformIcon",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setIcon"
+                    }
+                ],
+                "qualifiedClassName": "QQuickLabsPlatformSystemTrayIcon",
+                "signals": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "reason",
+                                "type": "QPlatformSystemTrayIcon::ActivationReason"
+                            }
+                        ],
+                        "index": 0,
+                        "lineNumber": 80,
+                        "name": "activated",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "lineNumber": 81,
+                        "name": "messageClicked",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 2,
+                        "lineNumber": 82,
+                        "name": "visibleChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 3,
+                        "lineNumber": 83,
+                        "name": "tooltipChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 4,
+                        "lineNumber": 84,
+                        "name": "menuChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 5,
+                        "lineNumber": 85,
+                        "name": "geometryChanged",
+                        "returnType": "void",
+                        "revision": 257
+                    },
+                    {
+                        "access": "public",
+                        "index": 6,
+                        "lineNumber": 86,
+                        "name": "iconChanged",
+                        "returnType": "void",
+                        "revision": 257
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "public",
+                        "index": 7,
+                        "lineNumber": 73,
+                        "name": "show",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 8,
+                        "lineNumber": 74,
+                        "name": "hide",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "title",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "message",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "iconType",
+                                "type": "QPlatformSystemTrayIcon::MessageIcon"
+                            },
+                            {
+                                "name": "msecs",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 9,
+                        "lineNumber": 76,
+                        "name": "showMessage",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "title",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "message",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "iconType",
+                                "type": "QPlatformSystemTrayIcon::MessageIcon"
+                            }
+                        ],
+                        "index": 10,
+                        "isCloned": true,
+                        "lineNumber": 76,
+                        "name": "showMessage",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "title",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "message",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 11,
+                        "isCloned": true,
+                        "lineNumber": 76,
+                        "name": "showMessage",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 12,
+                        "lineNumber": 98,
+                        "name": "updateIcon",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    },
+                    {
+                        "access": "public",
+                        "name": "QQmlParserStatus"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qquicklabsplatformsystemtrayicon_p.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "className": "QWidgetPlatformColorDialog",
+                "lineNumber": 25,
+                "object": true,
+                "qualifiedClassName": "QWidgetPlatformColorDialog",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QPlatformColorDialogHelper"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qwidgetplatformcolordialog_p.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "className": "QWidgetPlatformFileDialog",
+                "lineNumber": 25,
+                "object": true,
+                "qualifiedClassName": "QWidgetPlatformFileDialog",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QPlatformFileDialogHelper"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qwidgetplatformfiledialog_p.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "className": "QWidgetPlatformFontDialog",
+                "lineNumber": 25,
+                "object": true,
+                "qualifiedClassName": "QWidgetPlatformFontDialog",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QPlatformFontDialogHelper"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qwidgetplatformfontdialog_p.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "className": "QWidgetPlatformMenu",
+                "lineNumber": 26,
+                "object": true,
+                "qualifiedClassName": "QWidgetPlatformMenu",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QPlatformMenu"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qwidgetplatformmenu_p.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "className": "QWidgetPlatformMenuItem",
+                "lineNumber": 25,
+                "object": true,
+                "qualifiedClassName": "QWidgetPlatformMenuItem",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QPlatformMenuItem"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qwidgetplatformmenuitem_p.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "className": "QWidgetPlatformMessageDialog",
+                "lineNumber": 25,
+                "object": true,
+                "qualifiedClassName": "QWidgetPlatformMessageDialog",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QPlatformMessageDialogHelper"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qwidgetplatformmessagedialog_p.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "className": "QWidgetPlatformSystemTrayIcon",
+                "lineNumber": 27,
+                "object": true,
+                "qualifiedClassName": "QWidgetPlatformSystemTrayIcon",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QPlatformSystemTrayIcon"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qwidgetplatformsystemtrayicon_p.h",
+        "outputRevision": 69
+    }
+]

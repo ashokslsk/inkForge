@@ -1,0 +1,1002 @@
+[
+    {
+        "classes": [
+            {
+                "className": "QFilterNameDialog",
+                "lineNumber": 25,
+                "object": true,
+                "qualifiedClassName": "QFilterNameDialog",
+                "slots": [
+                    {
+                        "access": "private",
+                        "index": 0,
+                        "lineNumber": 36,
+                        "name": "updateOkButton",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QDialog"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qfilternamedialog_p.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "className": "QHelpCollectionHandler",
+                "lineNumber": 37,
+                "object": true,
+                "qualifiedClassName": "QHelpCollectionHandler",
+                "signals": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "msg",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 0,
+                        "lineNumber": 164,
+                        "name": "error",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qhelpcollectionhandler_p.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "className": "QHelpContentModel",
+                "lineNumber": 19,
+                "object": true,
+                "qualifiedClassName": "QHelpContentModel",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "lineNumber": 38,
+                        "name": "contentsCreationStarted",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "lineNumber": 39,
+                        "name": "contentsCreated",
+                        "returnType": "void"
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "private",
+                        "index": 2,
+                        "lineNumber": 42,
+                        "name": "insertContents",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QAbstractItemModel"
+                    }
+                ]
+            },
+            {
+                "className": "QHelpContentWidget",
+                "lineNumber": 51,
+                "object": true,
+                "qualifiedClassName": "QHelpContentWidget",
+                "signals": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "link",
+                                "type": "QUrl"
+                            }
+                        ],
+                        "index": 0,
+                        "lineNumber": 59,
+                        "name": "linkActivated",
+                        "returnType": "void"
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "private",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "QModelIndex"
+                            }
+                        ],
+                        "index": 1,
+                        "lineNumber": 62,
+                        "name": "showLink",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QTreeView"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qhelpcontentwidget.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "className": "QHelpDBReader",
+                "lineNumber": 28,
+                "object": true,
+                "qualifiedClassName": "QHelpDBReader",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qhelpdbreader_p.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "className": "QHelpEngine",
+                "lineNumber": 19,
+                "object": true,
+                "qualifiedClassName": "QHelpEngine",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QHelpEngineCore"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qhelpengine.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "className": "QHelpEngineCore",
+                "lineNumber": 25,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 0,
+                        "lineNumber": 28,
+                        "name": "autoSaveFilter",
+                        "override": false,
+                        "read": "autoSaveFilter",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setAutoSaveFilter"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 1,
+                        "lineNumber": 29,
+                        "name": "collectionFile",
+                        "override": false,
+                        "read": "collectionFile",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setCollectionFile"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 2,
+                        "lineNumber": 30,
+                        "name": "readOnly",
+                        "override": false,
+                        "read": "isReadOnly",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setReadOnly"
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 3,
+                        "lineNumber": 32,
+                        "name": "currentFilter",
+                        "override": false,
+                        "read": "currentFilter",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setCurrentFilter"
+                    }
+                ],
+                "qualifiedClassName": "QHelpEngineCore",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "lineNumber": 107,
+                        "name": "setupStarted",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "lineNumber": 108,
+                        "name": "setupFinished",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "msg",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 2,
+                        "lineNumber": 109,
+                        "name": "warning",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "newFilter",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 3,
+                        "lineNumber": 112,
+                        "name": "currentFilterChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 4,
+                        "lineNumber": 113,
+                        "name": "readersAboutToBeInvalidated",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qhelpenginecore.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "className": "QHelpFilterEngine",
+                "lineNumber": 22,
+                "object": true,
+                "qualifiedClassName": "QHelpFilterEngine",
+                "signals": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "newFilter",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 0,
+                        "lineNumber": 48,
+                        "name": "filterActivated",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qhelpfilterengine.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "className": "QHelpFilterSettingsWidget",
+                "lineNumber": 20,
+                "object": true,
+                "qualifiedClassName": "QHelpFilterSettingsWidget",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QWidget"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qhelpfiltersettingswidget.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "className": "QHelpIndexModel",
+                "lineNumber": 22,
+                "object": true,
+                "qualifiedClassName": "QHelpIndexModel",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "lineNumber": 35,
+                        "name": "indexCreationStarted",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "lineNumber": 36,
+                        "name": "indexCreated",
+                        "returnType": "void"
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "private",
+                        "index": 2,
+                        "lineNumber": 39,
+                        "name": "insertIndices",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QStringListModel"
+                    }
+                ]
+            },
+            {
+                "className": "QHelpIndexWidget",
+                "lineNumber": 49,
+                "object": true,
+                "qualifiedClassName": "QHelpIndexWidget",
+                "signals": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "link",
+                                "type": "QUrl"
+                            },
+                            {
+                                "name": "keyword",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 0,
+                        "lineNumber": 57,
+                        "name": "linkActivated",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "links",
+                                "type": "QMultiMap<QString,QUrl>"
+                            },
+                            {
+                                "name": "keyword",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 1,
+                        "lineNumber": 59,
+                        "name": "linksActivated",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "document",
+                                "type": "QHelpLink"
+                            },
+                            {
+                                "name": "keyword",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 2,
+                        "lineNumber": 61,
+                        "name": "documentActivated",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "documents",
+                                "type": "QList<QHelpLink>"
+                            },
+                            {
+                                "name": "keyword",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 3,
+                        "lineNumber": 62,
+                        "name": "documentsActivated",
+                        "returnType": "void"
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "filter",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "wildcard",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 4,
+                        "lineNumber": 65,
+                        "name": "filterIndices",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "filter",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 5,
+                        "isCloned": true,
+                        "lineNumber": 65,
+                        "name": "filterIndices",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 6,
+                        "lineNumber": 66,
+                        "name": "activateCurrentItem",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "QModelIndex"
+                            }
+                        ],
+                        "index": 7,
+                        "lineNumber": 69,
+                        "name": "showLink",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QListView"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qhelpindexwidget.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "className": "QHelpSearchEngine",
+                "lineNumber": 40,
+                "object": true,
+                "qualifiedClassName": "QHelpSearchEngine",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "lineNumber": 78,
+                        "name": "indexingStarted",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "lineNumber": 79,
+                        "name": "indexingFinished",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 2,
+                        "lineNumber": 81,
+                        "name": "searchingStarted",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "searchResultCount",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 3,
+                        "lineNumber": 82,
+                        "name": "searchingFinished",
+                        "returnType": "void"
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "public",
+                        "index": 4,
+                        "lineNumber": 65,
+                        "name": "reindexDocumentation",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 5,
+                        "lineNumber": 66,
+                        "name": "cancelIndexing",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "queryList",
+                                "type": "QList<QHelpSearchQuery>"
+                            }
+                        ],
+                        "index": 6,
+                        "lineNumber": 69,
+                        "name": "search",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "searchInput",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 7,
+                        "lineNumber": 72,
+                        "name": "search",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 8,
+                        "lineNumber": 73,
+                        "name": "cancelSearching",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 9,
+                        "lineNumber": 75,
+                        "name": "scheduleIndexDocumentation",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 10,
+                        "lineNumber": 85,
+                        "name": "indexDocumentation",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qhelpsearchengine.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "className": "QHelpSearchEngineCore",
+                "lineNumber": 19,
+                "object": true,
+                "qualifiedClassName": "QHelpSearchEngineCore",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "lineNumber": 42,
+                        "name": "indexingStarted",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "lineNumber": 43,
+                        "name": "indexingFinished",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 2,
+                        "lineNumber": 45,
+                        "name": "searchingStarted",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 3,
+                        "lineNumber": 46,
+                        "name": "searchingFinished",
+                        "returnType": "void"
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "public",
+                        "index": 4,
+                        "lineNumber": 33,
+                        "name": "reindexDocumentation",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 5,
+                        "lineNumber": 34,
+                        "name": "cancelIndexing",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "searchInput",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 6,
+                        "lineNumber": 36,
+                        "name": "search",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 7,
+                        "lineNumber": 37,
+                        "name": "cancelSearching",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 8,
+                        "lineNumber": 39,
+                        "name": "scheduleIndexDocumentation",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qhelpsearchenginecore.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "className": "QHelpSearchIndexReader",
+                "lineNumber": 30,
+                "object": true,
+                "qualifiedClassName": "fulltextsearch::QHelpSearchIndexReader",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "lineNumber": 44,
+                        "name": "searchingStarted",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "lineNumber": 45,
+                        "name": "searchingFinished",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QThread"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qhelpsearchindexreader_p.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "className": "QHelpSearchIndexWriter",
+                "lineNumber": 29,
+                "object": true,
+                "qualifiedClassName": "fulltextsearch::QHelpSearchIndexWriter",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "lineNumber": 40,
+                        "name": "indexingStarted",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "lineNumber": 41,
+                        "name": "indexingFinished",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QThread"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qhelpsearchindexwriter_p.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "className": "QHelpSearchQueryWidget",
+                "lineNumber": 18,
+                "object": true,
+                "qualifiedClassName": "QHelpSearchQueryWidget",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "lineNumber": 43,
+                        "name": "search",
+                        "returnType": "void"
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "on",
+                                "type": "bool"
+                            }
+                        ],
+                        "index": 1,
+                        "lineNumber": 40,
+                        "name": "setCompactMode",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QWidget"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qhelpsearchquerywidget.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "className": "QHelpSearchResultWidget",
+                "lineNumber": 19,
+                "object": true,
+                "qualifiedClassName": "QHelpSearchResultWidget",
+                "signals": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "url",
+                                "type": "QUrl"
+                            }
+                        ],
+                        "index": 0,
+                        "lineNumber": 28,
+                        "name": "requestShowLink",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QWidget"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qhelpsearchresultwidget.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "className": "QOptionsWidget",
+                "lineNumber": 27,
+                "object": true,
+                "qualifiedClassName": "QOptionsWidget",
+                "signals": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "options",
+                                "type": "QStringList"
+                            }
+                        ],
+                        "index": 0,
+                        "lineNumber": 42,
+                        "name": "optionSelectionChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QWidget"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qoptionswidget_p.h",
+        "outputRevision": 69
+    },
+    {
+        "classes": [
+            {
+                "className": "QResultWidget",
+                "lineNumber": 21,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 0,
+                        "lineNumber": 24,
+                        "name": "linkColor",
+                        "override": false,
+                        "read": "linkColor",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QColor",
+                        "user": false,
+                        "virtual": false,
+                        "write": "setLinkColor"
+                    }
+                ],
+                "qualifiedClassName": "QResultWidget",
+                "signals": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "url",
+                                "type": "QUrl"
+                            }
+                        ],
+                        "index": 0,
+                        "lineNumber": 83,
+                        "name": "requestShowLink",
+                        "returnType": "void"
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "private",
+                        "arguments": [
+                            {
+                                "type": "QUrl"
+                            },
+                            {
+                                "type": "QTextDocument::ResourceType"
+                            }
+                        ],
+                        "index": 1,
+                        "lineNumber": 86,
+                        "name": "doSetSource",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QTextBrowser"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "qhelpsearchresultwidget.cpp",
+        "outputRevision": 69
+    }
+]

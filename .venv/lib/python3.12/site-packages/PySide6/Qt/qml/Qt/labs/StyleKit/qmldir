@@ -1,0 +1,55 @@
+module Qt.labs.StyleKit
+linktarget Qt6::LabsStyleKitplugin
+optional plugin labsstylekitplugin
+classname Qt_labs_StyleKitPlugin
+typeinfo plugins.qmltypes
+import QtQuick.Controls.Basic auto
+depends QtQuick auto
+prefer :/qt-project.org/imports/Qt/labs/StyleKit/
+ApplicationWindow 6.0 ApplicationWindow.qml
+BusyIndicator 6.0 BusyIndicator.qml
+Button 6.0 Button.qml
+CheckBox 6.0 CheckBox.qml
+CheckDelegate 6.0 CheckDelegate.qml
+ComboBox 6.0 ComboBox.qml
+DelayButton 6.0 DelayButton.qml
+Dial 6.0 Dial.qml
+Dialog 6.0 Dialog.qml
+DialogButtonBox 6.0 DialogButtonBox.qml
+Frame 6.0 Frame.qml
+ItemDelegate 6.0 ItemDelegate.qml
+Menu 6.0 Menu.qml
+MenuBar 6.0 MenuBar.qml
+MenuBarItem 6.0 MenuBarItem.qml
+MenuItem 6.0 MenuItem.qml
+MenuSeparator 6.0 MenuSeparator.qml
+PageIndicator 6.0 PageIndicator.qml
+ProgressBar 6.0 ProgressBar.qml
+RadioButton 6.0 RadioButton.qml
+RadioDelegate 6.0 RadioDelegate.qml
+RoundButton 6.0 RoundButton.qml
+RangeSlider 6.0 RangeSlider.qml
+ScrollBar 6.0 ScrollBar.qml
+ScrollIndicator 6.0 ScrollIndicator.qml
+ScrollView 6.0 ScrollView.qml
+SearchField 6.0 SearchField.qml
+Slider 6.0 Slider.qml
+Style 6.0 Style.qml
+StyleAnimation 6.0 StyleAnimation.qml
+SpinBox 6.0 SpinBox.qml
+SwipeDelegate 6.0 SwipeDelegate.qml
+Switch 6.0 Switch.qml
+SwitchDelegate 6.0 SwitchDelegate.qml
+TextField 6.0 TextField.qml
+TabBar 6.0 TabBar.qml
+TabButton 6.0 TabButton.qml
+ToolBar 6.0 ToolBar.qml
+ToolButton 6.0 ToolButton.qml
+ToolSeparator 6.0 ToolSeparator.qml
+Page 6.0 Page.qml
+Pane 6.0 Pane.qml
+Popup 6.0 Popup.qml
+Label 6.0 Label.qml
+GroupBox 6.0 GroupBox.qml
+TextArea 6.0 TextArea.qml
+

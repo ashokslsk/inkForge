@@ -1,0 +1,29 @@
+== /Users/ashok/Downloads/New books to go to pocketdeck/2026-10-15/Communication & Persuasion/Pitch Perfect How to Say It Right the First Time, Every Time (Bill McGowan) (z-library.sk, 1lib.sk, z-lib.sk).epub
+   done: EPUB []
+== /Users/ashok/Downloads/New books to go to pocketdeck/2026-10-15/Communication & Persuasion/Professional Persuasion Sales Strategies To Influence, Dominate, And Succeed In Your Market (Wes Lee [Lee, Wes]) (z-library.sk, 1lib.sk, z-lib.sk).epub
+   done: EPUB []
+== /Users/ashok/Downloads/New books to go to pocketdeck/2026-10-15/Communication & Persuasion/The ABC ... DARK PSYCHOLOGY 2.0 – 10 Books in 1 - 2nd Edition Learn the World of Manipulation and Mind Control. The… (Daniel Robinson, Benedict Goleman) (z-library.sk, 1lib.sk, z-lib.sk).epub
+   done: EPUB []
+== /Users/ashok/Downloads/New books to go to pocketdeck/2026-10-15/Communication & Persuasion/The Communication Habit (Laura Joan Katen) (z-library.sk, 1lib.sk, z-lib.sk).epub
+   done: EPUB []
+== /Users/ashok/Downloads/New books to go to pocketdeck/2026-10-15/Communication & Persuasion/The Storytellers Advantage How Powerful Narratives Make Businesses Thrive (Christina Farr) (z-library.sk, 1lib.sk, z-lib.sk).epub
+   done: EPUB []
+== /Users/ashok/Downloads/New books to go to pocketdeck/2026-10-15/Communication & Persuasion/Unleash the Power of Storytelling Win Hearts, Change Minds, Get Results (Rob Biesenbach) (z-library.sk, 1lib.sk, z-lib.sk).epub
+   done: EPUB []
+== /Users/ashok/Downloads/New books to go to pocketdeck/2026-10-15/Communication & Persuasion/Verbal Judo The Gentle Art of Persuasion (George J. Thompson, Jerry B. Jenkins) (z-library.sk, 1lib.sk, z-lib.sk).epub
+   done: EPUB []
+== /Users/ashok/Downloads/New books to go to pocketdeck/2026-10-15/AI & Machine Learning/AI Engineering Building Applications with Foundation Models (Chip Huyen) (z-library.sk, 1lib.sk, z-lib.sk).epub
+   done: EPUB []
+== /Users/ashok/Downloads/Random works on reading on x3/ಮನುಸ್ಮೃತಿಯ ಧಾರ್ಮಿಕ ಸಂದೇಶಗಳು ಭಾಗ 1.pdf
+PDF method: Text reflow
+   done: Text reflow · Kannada []
+== /Users/ashok/Downloads/KANNADA/Kuvempu/PREMA KASHMIRA.pdf
+OCR trial: Kannada text detected
+OCR trial: 632 Kannada vs 22 Latin letters, lang=kan+eng
+PDF method: OCR (scanned book)
+   done: OCR (scanned book) · Kannada []
+== /private/tmp/claude-501/-Users-ashok-Downloads-New-books-to-go-to-pocketdeck/13a5ff69-a1a5-4d61-acdc-ad602868d40e/scratchpad/fmt/ಕನ್ನಡ ಕಥೆ.txt
+generated cover
+   done: Text → EPUB · Kannada []
+== /private/tmp/claude-501/-Users-ashok-Downloads-New-books-to-go-to-pocketdeck/13a5ff69-a1a5-4d61-acdc-ad602868d40e/scratchpad/broken.epub
+   failed: This file is not a valid EPUB (it is not a ZIP archive, or it is too damaged to recover). []

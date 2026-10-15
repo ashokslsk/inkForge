@@ -1,0 +1,229 @@
+[
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    },
+                    {
+                        "name": "QML.Singleton",
+                        "value": "true"
+                    }
+                ],
+                "className": "ComponentCreator",
+                "lineNumber": 66,
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "data",
+                                "type": "QByteArray"
+                            }
+                        ],
+                        "index": 0,
+                        "lineNumber": 74,
+                        "name": "createComponent",
+                        "returnType": "QQmlComponent*"
+                    }
+                ],
+                "object": true,
+                "qualifiedClassName": "QQuickControlsTestUtils::ComponentCreator",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            },
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    },
+                    {
+                        "name": "QML.Singleton",
+                        "value": "true"
+                    }
+                ],
+                "className": "StyleInfo",
+                "lineNumber": 77,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "lineNumber": 80,
+                        "name": "styleName",
+                        "override": false,
+                        "read": "styleName",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "virtual": false
+                    }
+                ],
+                "qualifiedClassName": "QQuickControlsTestUtils::StyleInfo",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            },
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    },
+                    {
+                        "name": "QML.Singleton",
+                        "value": "true"
+                    }
+                ],
+                "className": "SystemEnvironment",
+                "lineNumber": 131,
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 0,
+                        "lineNumber": 138,
+                        "name": "value",
+                        "returnType": "QString"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "name",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "value",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 1,
+                        "lineNumber": 139,
+                        "name": "setValue",
+                        "returnType": "bool"
+                    }
+                ],
+                "object": true,
+                "qualifiedClassName": "QQuickControlsTestUtils::SystemEnvironment",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            },
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    },
+                    {
+                        "name": "QML.Singleton",
+                        "value": "true"
+                    }
+                ],
+                "className": "ApplicationAttributes",
+                "lineNumber": 142,
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "attribute",
+                                "type": "Qt::ApplicationAttribute"
+                            }
+                        ],
+                        "index": 0,
+                        "isConst": true,
+                        "lineNumber": 149,
+                        "name": "test",
+                        "returnType": "bool"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "attribute",
+                                "type": "Qt::ApplicationAttribute"
+                            },
+                            {
+                                "name": "on",
+                                "type": "bool"
+                            }
+                        ],
+                        "index": 1,
+                        "lineNumber": 150,
+                        "name": "set",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "attribute",
+                                "type": "Qt::ApplicationAttribute"
+                            }
+                        ],
+                        "index": 2,
+                        "isCloned": true,
+                        "lineNumber": 150,
+                        "name": "set",
+                        "returnType": "void"
+                    }
+                ],
+                "object": true,
+                "qualifiedClassName": "QQuickControlsTestUtils::ApplicationAttributes",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            },
+            {
+                "className": "QmlTestHelper",
+                "lineNumber": 157,
+                "object": true,
+                "qualifiedClassName": "QQuickControlsTestUtils::QmlTestHelper",
+                "slots": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "lineNumber": 162,
+                        "name": "applicationAvailable",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "controlstestutils_p.h",
+        "outputRevision": 69
+    }
+]

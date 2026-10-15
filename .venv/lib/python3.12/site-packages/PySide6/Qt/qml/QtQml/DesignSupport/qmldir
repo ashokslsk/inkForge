@@ -1,0 +1,9 @@
+module QtQml.DesignSupport
+linktarget Qt6::QmlDesignSupportplugin
+optional plugin qmldesignsupportplugin
+classname QtQml_DesignSupportPlugin
+designersupported
+typeinfo plugins.qmltypes
+depends QtQml auto
+prefer :/qt-project.org/imports/QtQml/DesignSupport/
+

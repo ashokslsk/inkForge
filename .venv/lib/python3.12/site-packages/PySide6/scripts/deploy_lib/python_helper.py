@@ -1,0 +1,195 @@
+# Copyright (C) 2022 The Qt Company Ltd.
+# SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
+# Qt-Security score:critical reason:execute-external-code,handling-untrusted-data
+from __future__ import annotations
+
+import logging
+import os
+import sys
+
+from importlib.metadata import PackageNotFoundError, version
+from pathlib import Path
+from zipfile import ZipFile
+
+from . import Config, run_command
+
+
+class PythonExecutable:
+    """
+    Wrapper class around Python executable
+    """
+
+    def __init__(self, python_path: Path = None, dry_run: bool = False, init: bool = False,
+                 force: bool = False, no_install: bool = False):
+
+        self.dry_run = dry_run
+        self.init = init
+        self.no_install = no_install
+        if not python_path:
+            response = "yes"
+            # checking if inside virtual environment. Not needed with no_install,
+            # because then nothing is ever installed into it.
+            if (not self.is_venv() and not force and not self.dry_run and not self.init
+                    and not self.no_install):
+                response = input(("You are not using a virtual environment. pyside6-deploy needs "
+                                  "to install a few Python packages for deployment to work "
+                                  "seamlessly. \n Proceed? [Y/n]"))
+
+            if response.lower() in ["no", "n"]:
+                print("[DEPLOY] Exiting ...")
+                sys.exit(0)
+
+            self.exe = Path(sys.executable)
+        else:
+            self.exe = python_path
+
+        logging.info(f"[DEPLOY] Using Python at {str(self.exe)}")
+
+    @property
+    def exe(self):
+        return Path(self._exe)
+
+    @exe.setter
+    def exe(self, exe):
+        self._exe = exe
+
+    @staticmethod
+    def is_venv():
+        venv = os.environ.get("VIRTUAL_ENV")
+        return True if venv else False
+
+    def is_pyenv_python(self):
+        pyenv_root = os.environ.get("PYENV_ROOT")
+
+        if pyenv_root:
+            resolved_exe = self.exe.resolve()
+            if str(resolved_exe).startswith(pyenv_root):
+                return True
+
+        return False
+
+    def verify_installed(self, packages: list):
+        """
+        Check that 'packages' are already available, without installing
+        anything. Used by --no-install so that a deployment fails early and
+        names what is missing, instead of failing later inside Nuitka.
+        """
+        missing = []
+        for package in packages:
+            name = package.split("==")[0]
+            if not self.is_installed(name):
+                missing.append(name)
+        if missing:
+            raise RuntimeError(
+                "[DEPLOY] --no-install was given, but the following packages "
+                f"required for deployment are not installed: {', '.join(missing)}."
+                " Install them manually, or run without --no-install."
+            )
+        logging.info("[DEPLOY] All deployment dependencies are already installed")
+
+    def install(self, packages: list = None):
+        if self.no_install:
+            self.verify_installed(packages)
+            return
+
+        _, installed_packages = run_command(command=[str(self.exe), "-m", "pip", "freeze"],
+                                            dry_run=False, fetch_output=True)
+        installed_packages = [p.decode().split('==')[0] for p in installed_packages.split()]
+        for package in packages:
+            package_info = package.split('==')
+            package_components_len = len(package_info)
+            package_name, package_version = None, None
+            if package_components_len == 1:
+                package_name = package_info[0]
+            elif package_components_len == 2:
+                package_name = package_info[0]
+                package_version = package_info[1]
+            else:
+                raise ValueError(f"{package} should be of the format 'package_name'=='version'")
+            if (package_name not in installed_packages) and (not self.is_installed(package_name)):
+                # printed rather than logged, so that changes to the user's
+                # environment are visible at the default log level
+                print(f"[DEPLOY] Installing package: {package}")
+                run_command(
+                    command=[self.exe, "-m", "pip", "install", package],
+                    dry_run=self.dry_run,
+                )
+            elif package_version:
+                installed_version = version(package_name)
+                if package_version != installed_version:
+                    print(f"[DEPLOY] Installing package: {package_name}"
+                          f" version: {package_version}")
+                    run_command(
+                        command=[self.exe, "-m", "pip", "install", "--force", package],
+                        dry_run=self.dry_run,
+                    )
+                else:
+                    logging.info(f"[DEPLOY] package: {package_name}=={package_version}"
+                                 " already installed")
+            else:
+                logging.info(f"[DEPLOY] package: {package_name} already installed")
+
+    def is_installed(self, package):
+        # pysidedeploy.spec lists distribution names, e.g. "Nuitka", which need
+        # not match the import name, e.g. "nuitka". Query the distribution
+        # metadata, which normalizes the name, instead of the import system.
+        try:
+            version(package)
+        except PackageNotFoundError:
+            return False
+        return True
+
+    def install_dependencies(self, config: Config, packages: str, is_android: bool = False,
+                             nuitka_version: str = None):
+        """
+        Installs the python package dependencies for the target deployment platform
+        """
+        packages_str = config.get_value("python", packages)
+        if not packages_str:
+            logging.warning(f"[DEPLOY] No packages found in config for '{packages}', skipping")
+            return
+        packages = packages_str.split(",")
+        if nuitka_version:
+            # Explicit version requested via cli. Install it.
+            packages = [
+                f"Nuitka=={nuitka_version}" if p.strip().lower().startswith("nuitka") else p
+                for p in packages
+            ]
+        else:
+            # No explicit version: if Nuitka is already installed, use that. Otherwise, the one
+            # from pysidedeploy.spec
+            packages = [
+                p.split("==")[0]
+                if p.strip().lower().startswith("nuitka") and self.is_installed("Nuitka")
+                else p
+                for p in packages
+            ]
+        if not self.init:
+            # install packages needed for deployment
+            logging.info("[DEPLOY] Installing dependencies")
+            self.install(packages=packages)
+            # nuitka requires patchelf to make patchelf rpath changes for some Qt files
+            if sys.platform.startswith("linux") and not is_android:
+                self.install(packages=["patchelf"])
+        elif is_android:
+            # install only buildozer
+            logging.info("[DEPLOY] Installing buildozer")
+            buildozer_package_with_version = ([package for package in packages
+                                               if package.startswith("buildozer")])
+            self.install(packages=list(buildozer_package_with_version))
+
+
+def safe_extractall(archive: ZipFile, target_path: Path) -> None:
+    """
+    Extract all members of a zip archive into target_path, checking that each entry
+    resolves inside target_path to prevent path traversal attacks.
+    """
+    resolved_target = target_path.resolve()
+    for member in archive.infolist():
+        member_path = (target_path / member.filename).resolve()
+        if not member_path.is_relative_to(resolved_target):
+            raise RuntimeError(
+                f"[DEPLOY] Refusing to extract '{member.filename}': "
+                f"path resolves outside the extraction directory"
+            )
+        archive.extract(member, target_path)

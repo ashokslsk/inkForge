@@ -1,0 +1,9 @@
+module Qt.labs.platform
+linktarget Qt6::LabsPlatformplugin
+optional plugin labsplatformplugin
+classname QtLabsPlatformPlugin
+typeinfo plugins.qmltypes
+depends QtQuick auto
+depends QtQuick.Templates auto
+prefer :/qt-project.org/imports/Qt/labs/platform/
+
