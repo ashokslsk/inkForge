@@ -6,7 +6,7 @@
 
 <p align="center">
   <b>An offline Mac app that turns EPUB, PDF and MOBI books into clean, small EPUBs for Xteink e-ink readers, in English and ಕನ್ನಡ.</b><br>
-  A personal project by <b>Ashok Kumar Srinivas</b> · version 1.0.0 · macOS (Apple silicon)
+  A personal project by <b>Ashok Kumar Srinivas</b> · version 1.0.0 · macOS 26 or later on Apple silicon (see <a href="#compatibility">Compatibility</a>)
 </p>
 
 ---
@@ -20,7 +20,7 @@
 5. [How to use it](#how-to-use-it)
 6. [Where you can use it](#where-you-can-use-it)
 7. [What is implemented: the 20-step pipeline](#what-is-implemented-the-20-step-pipeline)
-8. [PDF conversion in depth](#pdf-conversion-in-depth)
+8. [PDF conversion in depth](#pdf-conversion-in-depth) (including bilingual books)
 9. [Kannada support](#kannada-support)
 10. [Output layout: dated folders, categories, ZIP](#output-layout-dated-folders-categories-zip)
 11. [Options reference](#options-reference)
@@ -30,7 +30,8 @@
 15. [Project structure](#project-structure)
 16. [Building from source](#building-from-source)
 17. [Limitations](#limitations)
-18. [Author](#author)
+18. [Compatibility](#compatibility)
+19. [Author](#author)
 
 ---
 
@@ -62,7 +63,9 @@ InkForge is a drag-and-drop desktop app, similar to [epubkit.ink](https://epubki
 | 🧹 | **Clean-up:** removes embedded fonts and unused CSS/images, simplifies CSS to what the firmware supports, and strips scripts and forms. |
 | 🏷️ | **Metadata clean-up:** strips calibre/store/z-library tags, fixes `Last, First` author names, and removes junk titles and user-name authors. |
 | ✍️ | **Text clean-up:** fixes mojibake (`â€™` → `’`), ligatures (`ﬁ` → `fi`), stray spacing and OCR slips. Unicode is normalized to NFC. |
-| 📄 | **PDF to EPUB, four ways:** Text reflow, OCR, Image reflow (k2pdfopt-style) or Page images. **Auto** picks one per book after checking the PDF. |
+| 📄 | **PDF to EPUB, decided page by page:** in **Auto** mode every page is checked. Clean pages use the PDF's own text, broken or scanned pages use OCR, and printed contents pages full of OCR noise are kept as images. You can also force Text reflow, Image reflow (k2pdfopt-style) or Page images. |
+| 🌐 | **Bilingual books:** for a Kannada page facing its English page (e.g. the Constitution of India), each language becomes one continuous section with its own table of contents. |
+| 🧽 | **Noise removal before writing the EPUB:** running heads, page numbers, dot leaders, contents-page number columns, OCR garbage lines, scanner file names and `�` are removed. Footnotes are separated and set in small type. |
 | 🔎 | **Built-in Kannada + English OCR:** the Tesseract 5.5 engine and the `kan`, `eng` and `osd` language data ship **inside the app**. You don't need to install anything. |
 | ಕ | **First-class Kannada:** text-layer quality scoring, repair of the MS-Word duplication bug, `dc:language=kn` tagging for PocketDeck-OS, an optional Kannada-as-images mode for stock firmware, and Kannada OCR. |
 | 🗂️ | **Automatic categorisation** into AI & Machine Learning, Programming, Communication, Business, Comedy & Humor, Spirituality, Kannada Literature and more. One switch turns it off. |
@@ -183,23 +186,35 @@ Every book runs through these steps after any conversion. The UI shows the curre
 
 ## PDF conversion in depth
 
-In **Auto** mode, InkForge first samples about 30 pages. For each sample it checks:
+### Step 1: a plan for every page
 
-* character count
-* how much of the page images cover
-* the Kannada well-formedness score
-* legacy Nudi/Baraha signatures in font names and Latin-1 patterns
-* private-use and `�` characters
-* `(cid:…)` codes
+In **Auto** mode InkForge checks **every page** separately rather than picking one method for the whole book:
 
-Based on that, it picks one of four paths:
-
-| Path | Chosen when | How it works |
+| Page looks like | Detected by | Converted with |
 |---|---|---|
-| **Text reflow** | The text layer is clean, in English or Unicode Kannada | 1. Merges fragments on the same baseline, so words split mid-way are rejoined.<br>2. Finds the reading order, with **two-column detection**.<br>3. Removes running heads and page numbers that repeat across pages.<br>4. Builds paragraphs from indents, gaps and sentence ends, and **continues paragraphs across page breaks**.<br>5. Removes line-end hyphens in English, and keeps bold, italic and superscript.<br>6. Turns monospace lines into `<pre>` and works out heading levels from font-size ranks.<br>7. Cuts figures, vector diagrams and tables out as images. Word-style page borders are ignored.<br>8. Splits chapters from **PDF bookmarks**, then headings, then every 20 pages. |
-| **OCR** (built in) | Scanned or broken pages, *and* the bundled Tesseract scores at least 65–75 confidence on trial pages from the middle of the book | 1. A trial **detects the script**: Kannada scans use the **Kannada-only** model, which avoids English misreads; English scans use the English model.<br>2. Renders pages at 300 dpi and runs OCR in parallel.<br>3. Rebuilds paragraphs and joins them across pages.<br>4. **Keeps poem and verse line breaks**, which it detects from short or punctuation-ended lines.<br>5. Fixes Kannada OCR confusions (`೦` → `ಂ`) and drops scanner junk such as `00000011.tif`.<br>6. Pages with almost no text (covers, plates) are kept as images. |
-| **Image reflow** | Legacy-font or broken-encoding Kannada, or scans that OCR can't read | Like k2pdfopt:<br>1. Finds text lines and attaches the thin bands of Kannada subscript and above-line marks to their lines.<br>2. Cuts each line into **word images**.<br>3. Scales them to a comfortable line height and **re-wraps them to the screen width**, keeping baselines, indents and centred headings.<br>4. Saves 4-grey PNG strips.<br>Faithful for any script, with no OCR needed. |
-| **Page images** | Manual choice: comics, magazines, maths | One margin-trimmed, screen-sized image per page. Light Novel mode rotates landscape pages. |
+| **Clean text** (English, or Unicode Kannada) | readable text layer, Kannada quality score of 0.9 or higher | **Text reflow** from the PDF's own text |
+| **Broken text layer** | legacy Nudi/Baraha Latin-1 patterns, broken Kannada sequences, private-use glyphs, `�`, `(cid:…)` | **OCR**. The language is chosen per page: Kannada-only, or Kannada+English when the page also has English words |
+| **Scanned page** | no text, image covering the page | **OCR**, but only when most of the book is scanned. A few image-only pages in a text book are covers or figures, so they stay pictures |
+| **Printed contents page** | dot leaders (`.......`) on a broken-text page | kept as a **clean page image**, because page numbers mean nothing in an EPUB |
+| **Blank page** | almost no text and no picture | skipped |
+
+The method shown in the app summarises the plan. The Constitution of India, for example, shows *Text + OCR (legacy Nudi/Baraha Kannada font)*, and the log says *360 text pages, 333 OCR pages, 27 contents pages as images*.
+
+### Step 2: converting each kind of page
+
+| Method | How it works |
+|---|---|
+| **Text reflow** | 1. Merges fragments on the same baseline, so words split mid-way are rejoined.<br>2. Finds the reading order, with **two-column detection**.<br>3. Removes running heads and page numbers that repeat in the top 12% or bottom 10% of pages.<br>4. Builds paragraphs by measuring **each page's own line spacing**, and compares indents with the previous line, so hanging indents and wrapped clauses stay together.<br>5. **Continues paragraphs across page breaks**, removes line-end hyphens in English, and keeps bold, italic and superscript.<br>6. Headings come from font-size ranks, plus bold or centred short lines and PART / CHAPTER / ಭಾಗ / ಅಧ್ಯಾಯ lines.<br>7. **Footnotes** (smaller type in the lower half of the page) are kept together and only break at a new note number.<br>8. Contents pages lose their dot leaders and page-number columns, and wrapped entries are rejoined.<br>9. Figures, vector diagrams and tables are cut out as images. Word-style page borders are ignored. |
+| **OCR** (built in) | 1. A trial on pages from the middle of the book **detects the script** (Kannada or English).<br>2. Pages are rendered at 300 dpi and OCR'd in parallel. Tesseract's **TSV output** gives every word a confidence and every line a position.<br>3. Low-confidence words, garbage lines (tiny fragments, short repeated patterns) and junk such as `00000011.tif` are removed. Genuine reduplication such as ಮತ್ತೆ ಮತ್ತೆ is kept.<br>4. Running heads are removed wherever they appear, including when they are glued to the end of a body line.<br>5. **Footnote zone:** everything below the first small numbered line is a footnote, split at each note number.<br>6. Legal and list clauses `(ಎ)`, `(ಬಿ)`, `(1)`, `(ii)`, `12.` each start their own paragraph. Poems keep their line breaks.<br>7. Chapter lines are made headings. Their Roman numerals are **re-read with Kannada+English**, because they are set in a Latin font (`ಭಾಗ - 11` → `ಭಾಗ - II`).<br>8. Fixes the `೦` → `ಂ` OCR confusion.<br>9. **Safety net:** if filters ever remove more than 12% of a page's confidently read text, the page is reported in the log. |
+| **Image reflow** | Fallback when OCR can't read a scan, like k2pdfopt:<br>1. Cuts lines into **word images**, attaching Kannada subscript and above-line marks to their lines.<br>2. Scales them to a comfortable line height and **re-wraps them to the screen width**, keeping baselines, indents and centred headings.<br>3. Saves 4-grey PNG strips. Faithful for any script. |
+| **Page images** | Manual choice for comics, magazines and maths: one margin-trimmed, screen-sized image per page. Light Novel mode rotates landscape pages. |
+
+### Step 3: assembling the book
+
+* **Bilingual books:** when at least a quarter of the pages are in each of Kannada and English, the pages are **grouped by language**. You get a complete **ಕನ್ನಡ ಆವೃತ್ತಿ** section followed by a complete **English version** section, instead of alternating pages.
+* **Chapters and TOC:** chapters come from PDF bookmarks when they exist. Otherwise they come from PART / CHAPTER / SCHEDULE / ಭಾಗ / ಅಧ್ಯಾಯ / ಅನುಸೂಚಿ headings, with the title line that follows; failing that, every 20 pages. Bilingual books get a two-level table of contents (language, then part or chapter).
+* Each chapter file is kept under about 100 KB of text so page turns stay fast on the reader.
+* Footnotes are written after their page's text, under a short rule, in smaller type.
 
 Password-protected PDFs are detected and explained. Junk PDF metadata, such as `Microsoft Word - x.docx`, user names like `a3366` or the word `Author`, falls back to the filename: `Title (Author)` is parsed.
 
@@ -217,7 +232,8 @@ Password-protected PDFs are detected and explained. Junk PDF metadata, such as `
   * `ಶ್ಲೋಕ ಕ` → `ಶ್ಲೋಕ`
   * `ಬೆಳೆಯುತ್ತದೆದೆ` → `ಬೆಳೆಯುತ್ತದೆ`
   * Genuine reduplication such as **ಮತ್ತೆ ಮತ್ತೆ**, **ಕಣ್ಣು ಕಣ್ಣು** and **ಕಿಲಕಿಲ** is preserved.
-* **Legacy Nudi/Baraha PDFs** are recognised and read with OCR, so they never produce garbled Latin text. Image reflow is kept only as a fallback.
+* **Legacy Nudi/Baraha PDFs** are recognised **page by page** and read with OCR, so they never produce garbled Latin text. English pages in the same book still use their clean text layer. Image reflow is kept only as a fallback.
+* **Bilingual Kannada + English books** are regrouped into one continuous ಕನ್ನಡ section and one English section.
 * **Built-in Kannada OCR** (Tesseract `kan`, bundled in the app). It turns scanned, legacy-font and broken-encoding Kannada PDFs into **real Kannada text**: verse keeps its line breaks, and the anusvara misread (`ಹಿ೦ದಿನ` → `ಹಿಂದಿನ`) is fixed.
 * Kannada covers, TXT chapter detection (`ಅಧ್ಯಾಯ`, `ಭಾಗ`), Kannada category keywords and FAT-safe Kannada filenames inside a UTF-8 ZIP.
 
@@ -242,7 +258,7 @@ Password-protected PDFs are detected and explained. Junk PDF metadata, such as `
 
 * **Sort into category folders: on** (the default). Books are classified offline from title, subjects, description and opening text. On a hand-sorted library of 59 books, **57 matched** the owner's own folders.
 * **Off:** books go straight into the dated folder. With **Keep my folder structure** ticked, the sub-folders you dropped are kept.
-* **Categories:** AI & Machine Learning · AI & Society · Programming & Software Engineering · Math, Science & Engineering · Communication & Persuasion · Leadership, Business & Career · Economics & Geopolitics · Spirituality & Wellness · Health & Fitness · Psychology & Self-Help · Comedy & Humor · Fiction & Literature · History & Biography · Art & Design · Kannada Language & Literature · Kannada Books · General.
+* **Categories:** AI & Machine Learning · AI & Society · Programming & Software Engineering · Math, Science & Engineering · Communication & Persuasion · Leadership, Business & Career · Economics & Geopolitics · Spirituality & Wellness · Health & Fitness · Psychology & Self-Help · Comedy & Humor · Fiction & Literature · History & Biography · Law, Politics & Government · Art & Design · Kannada Language & Literature · Kannada Books · General.
 * **Batches:** books are processed **one at a time**, so memory is freed between books and very large drops don't stall.
 
 ---
@@ -291,6 +307,7 @@ These were run on this Mac (Apple silicon):
 | *Vaddaaradhane* (broken-encoding Kannada PDF, 585 pages) | 3.3 MB → 0.46 MB real Kannada text (quality 0.997) |
 | *Prema Kashmira*, Kuvempu (scanned poems) | 2.0 MB → 0.08 MB, Kannada-only OCR, poem line breaks kept, 0 Latin misreads |
 | *Malenadina Chitragalu*, Kuvempu (scan, 26.9 MB) | → 0.91 MB real Kannada text |
+| *Constitution of India* (bilingual, 721 pages: Nudi-font Kannada + English) | 4.5 MB → 1.83 MB in 2 min. Kannada and English are separate continuous sections with PART / ಭಾಗ navigation. Compared with the first version: garbled-English strings **21,837 → 3**, page-number paragraphs **589 → 24**, dot leaders **205 → 0**, running heads **346 → 8**, Kannada quality **0.9926 → 0.9998** |
 
 ---
 
@@ -322,7 +339,8 @@ InkForge/
 │   ├── InkForge.app       the Mac app
 │   └── InkForge-1.0.0.dmg drag-to-Applications installer
 ├── screenshots/           UI screenshots
-├── tests/                 headless UI / end-to-end scripts
+├── tests/                 headless UI scripts, noise_report.py (noise metrics for an EPUB),
+│                          preview_pages.py (renders EPUB pages at device size for review)
 ├── vendor/                bundled OCR: tesseract + 15 relocatable dylibs, tessdata (kan, eng, osd)
 ├── vendor_tesseract.py    re-creates vendor/tesseract from Homebrew
 └── inkforge/
@@ -353,12 +371,12 @@ cd InkForge
 ./build_app.sh
 ```
 
-This creates the virtualenv on the first run, then builds `dist/InkForge.app`.
+This creates the virtualenv on the first run, vendors the OCR engine, then builds both `dist/InkForge.app` and the installer `dist/InkForge-1.0.0.dmg`.
 
-To make the installer:
+To check the quality of a converted book:
 
 ```bash
-hdiutil create -volname InkForge -srcfolder build_tmp/dmg -ov -format UDZO dist/InkForge-1.0.0.dmg
+.venv/bin/python tests/noise_report.py "path/to/book.epub"
 ```
 
 To run from source without building:
@@ -376,7 +394,23 @@ To run from source without building:
 * **Complex PDF layouts** (magazines, maths, multi-column tables) may read better in **Page images** mode.
 * **DRM-protected books** cannot be processed, by design.
 * The app is **ad-hoc signed, not notarized**. On another Mac, use right-click ▸ Open the first time.
-* It is built for **Apple silicon** (arm64). On an Intel Mac, rebuild from source on that Mac.
+* Some OCR misreads remain in old prints. For example, a chapter number can occasionally come out as `ಭಾಗ - 8` instead of `ಭಾಗ - I`.
+* See **Compatibility** below for which Macs can run this build.
+
+---
+
+## Compatibility
+
+Checked by inspecting every binary in the app (`file`, `vtool -show-build`):
+
+| Mac | This build |
+|---|---|
+| Apple silicon (M1, M2, M3, M4 and later) on **macOS 26 or later** | ✅ Runs. All binaries are `arm64`. |
+| Apple silicon on macOS 11–15 | ❌ Won't start. About 85 bundled libraries (Homebrew's Python and Tesseract) require macOS 26. |
+| Intel Macs | ❌ Won't start. Nothing is built for `x86_64`. |
+| Future macOS versions | ✅ Expected to keep working. |
+
+Supporting older macOS and Intel Macs needs a separate build on python.org's Python 3.11 (macOS 11+), with Tesseract compiled from source for both chip types, shipped as two installers. This hasn't been done yet.
 
 ---
 
