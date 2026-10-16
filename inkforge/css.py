@@ -181,4 +181,6 @@ sup,sub{font-size:0.75em;line-height:0}
 p.pdf-p{text-indent:1.2em;margin:0}
 p.pdf-first{text-indent:0}
 .pdf-fig{text-align:center;text-indent:0;margin:0.5em 0}
+p.fn{font-size:0.8em;text-indent:0;margin:0.15em 0}
+hr.fn-rule{width:30%;margin:0.6em 0 0.2em 0;border:0;border-top:1px solid #000;text-align:left}
 """

@@ -2313,21 +2313,17 @@
   ('Python.framework/Versions/3.12/Python',
    '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/Python',
    'BINARY'),
-  ('PySide6/Qt/plugins/imageformats/libqtiff.dylib',
+  ('PySide6/Qt/plugins/imageformats/libqtga.dylib',
    '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/plugins/imageformats/libqtiff.dylib',
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/plugins/imageformats/libqtga.dylib',
    'BINARY'),
-  ('PySide6/Qt/plugins/platforms/libqcocoa.dylib',
+  ('PySide6/Qt/plugins/imageformats/libqgif.dylib',
    '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/plugins/platforms/libqcocoa.dylib',
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/plugins/imageformats/libqgif.dylib',
    'BINARY'),
-  ('PySide6/Qt/plugins/iconengines/libqsvgicon.dylib',
+  ('PySide6/Qt/plugins/platforms/libqoffscreen.dylib',
    '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/plugins/iconengines/libqsvgicon.dylib',
-   'BINARY'),
-  ('PySide6/Qt/plugins/imageformats/libqwebp.dylib',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/plugins/imageformats/libqwebp.dylib',
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/plugins/platforms/libqoffscreen.dylib',
    'BINARY'),
   ('PySide6/Qt/plugins/imageformats/libqico.dylib',
    '/Users/ashok/Downloads/New books to go to '
@@ -2337,6 +2333,10 @@
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/plugins/imageformats/libqicns.dylib',
    'BINARY'),
+  ('PySide6/Qt/plugins/platforms/libqminimal.dylib',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/plugins/platforms/libqminimal.dylib',
+   'BINARY'),
   ('PySide6/Qt/plugins/imageformats/libqmacjp2.dylib',
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/plugins/imageformats/libqmacjp2.dylib',
@@ -2345,51 +2345,51 @@
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/plugins/imageformats/libqwbmp.dylib',
    'BINARY'),
-  ('PySide6/Qt/plugins/imageformats/libqtga.dylib',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/plugins/imageformats/libqtga.dylib',
-   'BINARY'),
-  ('PySide6/Qt/plugins/generic/libqtuiotouchplugin.dylib',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/plugins/generic/libqtuiotouchplugin.dylib',
-   'BINARY'),
   ('PySide6/Qt/plugins/imageformats/libqjpeg.dylib',
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/plugins/imageformats/libqjpeg.dylib',
-   'BINARY'),
-  ('PySide6/Qt/plugins/platforms/libqoffscreen.dylib',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/plugins/platforms/libqoffscreen.dylib',
    'BINARY'),
   ('PySide6/Qt/plugins/imageformats/libqsvg.dylib',
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/plugins/imageformats/libqsvg.dylib',
    'BINARY'),
-  ('PySide6/Qt/plugins/imageformats/libqgif.dylib',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/plugins/imageformats/libqgif.dylib',
-   'BINARY'),
   ('PySide6/Qt/plugins/imageformats/libqmacheif.dylib',
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/plugins/imageformats/libqmacheif.dylib',
    'BINARY'),
-  ('PySide6/Qt/plugins/platforms/libqminimal.dylib',
+  ('PySide6/Qt/plugins/generic/libqtuiotouchplugin.dylib',
    '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/plugins/platforms/libqminimal.dylib',
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/plugins/generic/libqtuiotouchplugin.dylib',
    'BINARY'),
-  ('libcrypto.3.dylib', '/opt/homebrew/lib/libcrypto.3.dylib', 'BINARY'),
-  ('libssl.3.dylib', '/opt/homebrew/lib/libssl.3.dylib', 'BINARY'),
-  ('PySide6/Qt/plugins/networkinformation/libqapplenetworkinformation.dylib',
+  ('PySide6/Qt/plugins/imageformats/libqtiff.dylib',
    '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/plugins/networkinformation/libqapplenetworkinformation.dylib',
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/plugins/imageformats/libqtiff.dylib',
    'BINARY'),
-  ('PySide6/Qt/plugins/tls/libqcertonlybackend.dylib',
+  ('PySide6/Qt/plugins/imageformats/libqwebp.dylib',
    '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/plugins/tls/libqcertonlybackend.dylib',
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/plugins/imageformats/libqwebp.dylib',
+   'BINARY'),
+  ('PySide6/Qt/plugins/iconengines/libqsvgicon.dylib',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/plugins/iconengines/libqsvgicon.dylib',
+   'BINARY'),
+  ('PySide6/Qt/plugins/platforms/libqcocoa.dylib',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/plugins/platforms/libqcocoa.dylib',
    'BINARY'),
   ('PySide6/Qt/plugins/tls/libqopensslbackend.dylib',
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/plugins/tls/libqopensslbackend.dylib',
+   'BINARY'),
+  ('libcrypto.3.dylib', '/opt/homebrew/lib/libcrypto.3.dylib', 'BINARY'),
+  ('PySide6/Qt/plugins/networkinformation/libqapplenetworkinformation.dylib',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/plugins/networkinformation/libqapplenetworkinformation.dylib',
+   'BINARY'),
+  ('libssl.3.dylib', '/opt/homebrew/lib/libssl.3.dylib', 'BINARY'),
+  ('PySide6/Qt/plugins/tls/libqcertonlybackend.dylib',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/plugins/tls/libqcertonlybackend.dylib',
    'BINARY'),
   ('PySide6/Qt/plugins/tls/libqsecuretransportbackend.dylib',
    '/Users/ashok/Downloads/New books to go to '
@@ -2695,10 +2695,6 @@
   ('python3.12/lib-dynload/fcntl.cpython-312-darwin.so',
    '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/lib-dynload/fcntl.cpython-312-darwin.so',
    'EXTENSION'),
-  ('libarchive.13.dylib',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/vendor/tesseract/lib/libarchive.13.dylib',
-   'BINARY'),
   ('libtesseract.5.dylib',
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/vendor/tesseract/lib/libtesseract.5.dylib',
@@ -2707,9 +2703,9 @@
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/vendor/tesseract/lib/libleptonica.6.dylib',
    'BINARY'),
-  ('liblz4.1.dylib',
+  ('libarchive.13.dylib',
    '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/vendor/tesseract/lib/liblz4.1.dylib',
+   'pocketdeck/InkForge/vendor/tesseract/lib/libarchive.13.dylib',
    'BINARY'),
   ('libzstd.1.dylib',
    '/Users/ashok/Downloads/New books to go to '
@@ -2719,9 +2715,13 @@
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/vendor/tesseract/lib/libb2.1.dylib',
    'BINARY'),
-  ('libgif.dylib',
+  ('liblz4.1.dylib',
    '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/vendor/tesseract/lib/libgif.dylib',
+   'pocketdeck/InkForge/vendor/tesseract/lib/liblz4.1.dylib',
+   'BINARY'),
+  ('libjpeg.8.dylib',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/vendor/tesseract/lib/libjpeg.8.dylib',
    'BINARY'),
   ('libopenjp2.7.dylib',
    '/Users/ashok/Downloads/New books to go to '
@@ -2731,17 +2731,17 @@
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/vendor/tesseract/lib/libpng16.16.dylib',
    'BINARY'),
-  ('libjpeg.8.dylib',
+  ('libgif.dylib',
    '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/vendor/tesseract/lib/libjpeg.8.dylib',
-   'BINARY'),
-  ('PySide6/Qt/lib/QtGui.framework/Versions/A/QtGui',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/lib/QtGui.framework/Versions/A/QtGui',
+   'pocketdeck/InkForge/vendor/tesseract/lib/libgif.dylib',
    'BINARY'),
   ('PySide6/Qt/lib/QtCore.framework/Versions/A/QtCore',
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/lib/QtCore.framework/Versions/A/QtCore',
+   'BINARY'),
+  ('PySide6/Qt/lib/QtGui.framework/Versions/A/QtGui',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/lib/QtGui.framework/Versions/A/QtGui',
    'BINARY'),
   ('PySide6/Qt/lib/QtSvg.framework/Versions/A/QtSvg',
    '/Users/ashok/Downloads/New books to go to '
@@ -2758,13 +2758,13 @@
   ('libmpdec.4.dylib',
    '/opt/homebrew/opt/mpdecimal/lib/libmpdec.4.dylib',
    'BINARY'),
-  ('PIL/.dylibs/libwebp.7.dylib',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PIL/.dylibs/libwebp.7.dylib',
-   'BINARY'),
   ('PIL/.dylibs/libwebpdemux.2.dylib',
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PIL/.dylibs/libwebpdemux.2.dylib',
+   'BINARY'),
+  ('PIL/.dylibs/libwebp.7.dylib',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PIL/.dylibs/libwebp.7.dylib',
    'BINARY'),
   ('PIL/.dylibs/libwebpmux.3.dylib',
    '/Users/ashok/Downloads/New books to go to '
@@ -2778,14 +2778,6 @@
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PIL/.dylibs/liblcms2.2.dylib',
    'BINARY'),
-  ('PIL/.dylibs/libtiff.6.dylib',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PIL/.dylibs/libtiff.6.dylib',
-   'BINARY'),
-  ('PIL/.dylibs/libxcb.1.1.0.dylib',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PIL/.dylibs/libxcb.1.1.0.dylib',
-   'BINARY'),
   ('PIL/.dylibs/libz.1.3.1.zlib-ng.dylib',
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PIL/.dylibs/libz.1.3.1.zlib-ng.dylib',
@@ -2798,6 +2790,14 @@
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PIL/.dylibs/libopenjp2.2.5.4.dylib',
    'BINARY'),
+  ('PIL/.dylibs/libtiff.6.dylib',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PIL/.dylibs/libtiff.6.dylib',
+   'BINARY'),
+  ('PIL/.dylibs/libxcb.1.1.0.dylib',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PIL/.dylibs/libxcb.1.1.0.dylib',
+   'BINARY'),
   ('pymupdf/libmupdfcpp.so',
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/pymupdf/libmupdfcpp.so',
@@ -2806,13 +2806,13 @@
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/pymupdf/libmupdf.dylib',
    'BINARY'),
-  ('PySide6/libpyside6.abi3.6.12.dylib',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/libpyside6.abi3.6.12.dylib',
-   'BINARY'),
   ('shiboken6/libshiboken6.abi3.6.12.dylib',
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/shiboken6/libshiboken6.abi3.6.12.dylib',
+   'BINARY'),
+  ('PySide6/libpyside6.abi3.6.12.dylib',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/libpyside6.abi3.6.12.dylib',
    'BINARY'),
   ('PySide6/Qt/lib/QtDBus.framework/Versions/A/QtDBus',
    '/Users/ashok/Downloads/New books to go to '
@@ -2976,17 +2976,13 @@
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/vendor/tessdata/tessconfigs/segdemo',
    'DATA'),
-  ('lxml/isoschematron/resources/xsl/RNG2Schtrn.xsl',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/lxml/isoschematron/resources/xsl/RNG2Schtrn.xsl',
-   'DATA'),
-  ('lxml/isoschematron/resources/rng/iso-schematron.rng',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/lxml/isoschematron/resources/rng/iso-schematron.rng',
-   'DATA'),
   ('lxml/isoschematron/resources/xsl/iso-schematron-xslt1/iso_svrl_for_xslt1.xsl',
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/lxml/isoschematron/resources/xsl/iso-schematron-xslt1/iso_svrl_for_xslt1.xsl',
+   'DATA'),
+  ('lxml/isoschematron/resources/xsl/iso-schematron-xslt1/readme.txt',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/lxml/isoschematron/resources/xsl/iso-schematron-xslt1/readme.txt',
    'DATA'),
   ('lxml/isoschematron/resources/xsl/iso-schematron-xslt1/iso_abstract_expand.xsl',
    '/Users/ashok/Downloads/New books to go to '
@@ -2996,522 +2992,526 @@
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/lxml/isoschematron/resources/xsl/iso-schematron-xslt1/iso_dsdl_include.xsl',
    'DATA'),
-  ('lxml/isoschematron/resources/xsl/iso-schematron-xslt1/readme.txt',
+  ('lxml/isoschematron/resources/xsl/iso-schematron-xslt1/iso_schematron_skeleton_for_xslt1.xsl',
    '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/lxml/isoschematron/resources/xsl/iso-schematron-xslt1/readme.txt',
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/lxml/isoschematron/resources/xsl/iso-schematron-xslt1/iso_schematron_skeleton_for_xslt1.xsl',
    'DATA'),
   ('lxml/isoschematron/resources/xsl/XSD2Schtrn.xsl',
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/lxml/isoschematron/resources/xsl/XSD2Schtrn.xsl',
    'DATA'),
-  ('lxml/isoschematron/resources/xsl/iso-schematron-xslt1/iso_schematron_skeleton_for_xslt1.xsl',
+  ('lxml/isoschematron/resources/rng/iso-schematron.rng',
    '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/lxml/isoschematron/resources/xsl/iso-schematron-xslt1/iso_schematron_skeleton_for_xslt1.xsl',
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/lxml/isoschematron/resources/rng/iso-schematron.rng',
    'DATA'),
   ('lxml/isoschematron/resources/xsl/iso-schematron-xslt1/iso_schematron_message.xsl',
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/lxml/isoschematron/resources/xsl/iso-schematron-xslt1/iso_schematron_message.xsl',
    'DATA'),
-  ('PySide6/Qt/translations/qt_ca.qm',
+  ('lxml/isoschematron/resources/xsl/RNG2Schtrn.xsl',
    '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_ca.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qtbase_hu.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_hu.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_help_bg.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_bg.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_help_ar.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_ar.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qtbase_gd.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_gd.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qtbase_sv.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_sv.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qtbase_lv.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_lv.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_help_hu.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_hu.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qtbase_ka.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_ka.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qtbase_fr.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_fr.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qtbase_ko.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_ko.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qtbase_fi.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_fi.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_help_sv.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_sv.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_kk.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_kk.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_sl.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_sl.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_ka.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_ka.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_help_es.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_es.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_help_hr.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_hr.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_sk.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_sk.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_uk.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_uk.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_pt_PT.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_pt_PT.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_help_sk.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_sk.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qtbase_it.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_it.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qtbase_da.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_da.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qtbase_de.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_de.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qtbase_en.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_en.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_ko.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_ko.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qtbase_pl.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_pl.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qtbase_sk.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_sk.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_gl.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_gl.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_help_ca.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_ca.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_es.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_es.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_help_cs.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_cs.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_help_da.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_da.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qtbase_ar.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_ar.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qtbase_ja.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_ja.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_help_it.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_it.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_help_sl.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_sl.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_help_nn.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_nn.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_help_pl.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_pl.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_help_ja.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_ja.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_lv.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_lv.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qtbase_uk.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_uk.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_lg.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_lg.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_cs.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_cs.qm',
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/lxml/isoschematron/resources/xsl/RNG2Schtrn.xsl',
    'DATA'),
   ('PySide6/Qt/translations/qt_help_ka.qm',
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_ka.qm',
    'DATA'),
-  ('PySide6/Qt/translations/qt_help_uk.qm',
+  ('PySide6/Qt/translations/qt_uk.qm',
    '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_uk.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qtbase_lg.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_lg.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_pt_BR.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_pt_BR.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_nn.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_nn.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qtbase_fa.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_fa.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qtbase_ru.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_ru.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qtbase_kk.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_kk.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_help_pt_BR.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_pt_BR.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_ar.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_ar.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qtbase_tr.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_tr.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_help_kk.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_kk.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_help_en.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_en.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_hr.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_hr.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_tr.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_tr.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_fr.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_fr.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_it.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_it.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_bg.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_bg.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_help_zh_CN.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_zh_CN.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_zh_CN.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_zh_CN.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_en.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_en.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qtbase_hr.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_hr.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qtbase_he.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_he.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_zh_TW.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_zh_TW.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_help_fr.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_fr.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qtbase_nl.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_nl.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_help_tr.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_tr.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_help_zh_TW.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_zh_TW.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_help_nl.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_nl.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_help_gl.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_gl.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_de.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_de.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qtbase_pt_BR.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_pt_BR.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_ja.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_ja.qm',
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_uk.qm',
    'DATA'),
   ('PySide6/Qt/translations/qtbase_zh_CN.qm',
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_zh_CN.qm',
    'DATA'),
-  ('PySide6/Qt/translations/qt_help_ko.qm',
+  ('PySide6/Qt/translations/qt_help_ja.qm',
    '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_ko.qm',
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_ja.qm',
    'DATA'),
-  ('PySide6/Qt/translations/qt_ru.qm',
+  ('PySide6/Qt/translations/qtbase_kk.qm',
    '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_ru.qm',
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_kk.qm',
    'DATA'),
-  ('PySide6/Qt/translations/qt_lt.qm',
+  ('PySide6/Qt/translations/qtbase_ar.qm',
    '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_lt.qm',
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_ar.qm',
    'DATA'),
-  ('PySide6/Qt/translations/qt_fi.qm',
+  ('PySide6/Qt/translations/qt_zh_TW.qm',
    '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_fi.qm',
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_zh_TW.qm',
    'DATA'),
-  ('PySide6/Qt/translations/qtbase_zh_TW.qm',
+  ('PySide6/Qt/translations/qt_pt_PT.qm',
    '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_zh_TW.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_help_de.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_de.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_sv.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_sv.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qtbase_cs.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_cs.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_pl.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_pl.qm',
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_pt_PT.qm',
    'DATA'),
   ('PySide6/Qt/translations/qt_da.qm',
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_da.qm',
    'DATA'),
-  ('PySide6/Qt/translations/qt_fa.qm',
+  ('PySide6/Qt/translations/qt_help_en.qm',
    '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_fa.qm',
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_en.qm',
    'DATA'),
-  ('PySide6/Qt/translations/qtbase_bg.qm',
+  ('PySide6/Qt/translations/qtbase_uk.qm',
    '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_bg.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qtbase_ca.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_ca.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_gd.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_gd.qm',
-   'DATA'),
-  ('PySide6/Qt/translations/qt_help_ru.qm',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_ru.qm',
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_uk.qm',
    'DATA'),
   ('PySide6/Qt/translations/qt_he.qm',
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_he.qm',
    'DATA'),
-  ('PySide6/Qt/translations/qtbase_nn.qm',
+  ('PySide6/Qt/translations/qtbase_it.qm',
    '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_nn.qm',
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_it.qm',
    'DATA'),
-  ('PySide6/Qt/translations/qt_hu.qm',
+  ('PySide6/Qt/translations/qt_help_de.qm',
    '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_hu.qm',
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_de.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_nn.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_nn.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_help_it.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_it.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_pt_BR.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_pt_BR.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_help_uk.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_uk.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_help_da.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_da.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_help_bg.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_bg.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_help_zh_CN.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_zh_CN.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qtbase_da.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_da.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qtbase_ko.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_ko.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qtbase_cs.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_cs.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_help_fr.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_fr.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_tr.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_tr.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qtbase_bg.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_bg.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_help_ko.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_ko.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_ar.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_ar.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_cs.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_cs.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_help_kk.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_kk.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qtbase_de.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_de.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_help_nl.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_nl.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qtbase_ja.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_ja.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_lt.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_lt.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_lv.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_lv.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_sv.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_sv.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_sk.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_sk.qm',
    'DATA'),
   ('PySide6/Qt/translations/qt_nl.qm',
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_nl.qm',
    'DATA'),
+  ('PySide6/Qt/translations/qt_help_pt_BR.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_pt_BR.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_hu.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_hu.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_it.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_it.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_hr.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_hr.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_help_tr.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_tr.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_help_ca.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_ca.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_kk.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_kk.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qtbase_tr.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_tr.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qtbase_sk.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_sk.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_ja.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_ja.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_ca.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_ca.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_help_hr.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_hr.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_bg.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_bg.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_fr.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_fr.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qtbase_zh_TW.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_zh_TW.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_gd.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_gd.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_gl.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_gl.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_help_es.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_es.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_sl.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_sl.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_help_cs.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_cs.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_help_ar.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_ar.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_help_sk.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_sk.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qtbase_ka.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_ka.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_help_pl.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_pl.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qtbase_pl.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_pl.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qtbase_he.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_he.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qtbase_hu.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_hu.qm',
+   'DATA'),
   ('PySide6/Qt/translations/qtbase_es.qm',
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_es.qm',
    'DATA'),
+  ('PySide6/Qt/translations/qtbase_ca.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_ca.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_fa.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_fa.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_en.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_en.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_help_sl.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_sl.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qtbase_lv.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_lv.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_help_zh_TW.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_zh_TW.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_zh_CN.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_zh_CN.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qtbase_fr.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_fr.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_fi.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_fi.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_de.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_de.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_lg.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_lg.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qtbase_pt_BR.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_pt_BR.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qtbase_gd.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_gd.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qtbase_lg.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_lg.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qtbase_ru.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_ru.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_help_nn.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_nn.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qtbase_nl.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_nl.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_help_hu.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_hu.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qtbase_nn.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_nn.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_help_sv.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_sv.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_ka.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_ka.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_help_gl.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_gl.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_help_ru.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_help_ru.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qtbase_en.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_en.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qtbase_hr.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_hr.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_pl.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_pl.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_ko.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_ko.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qtbase_sv.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_sv.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qtbase_fi.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_fi.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_es.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_es.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qt_ru.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qt_ru.qm',
+   'DATA'),
+  ('PySide6/Qt/translations/qtbase_fa.qm',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/PySide6/Qt/translations/qtbase_fa.qm',
+   'DATA'),
   ('Python', 'Python.framework/Versions/3.12/Python', 'SYMLINK'),
-  ('numpy-2.5.4.dist-info/licenses/numpy/random/src/pcg64/LICENSE.md',
+  ('numpy-2.5.4.dist-info/licenses/numpy/linalg/lapack_lite/LICENSE.txt',
    '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/licenses/numpy/random/src/pcg64/LICENSE.md',
-   'DATA'),
-  ('numpy-2.5.4.dist-info/METADATA',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/METADATA',
-   'DATA'),
-  ('numpy-2.5.4.dist-info/REQUESTED',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/REQUESTED',
-   'DATA'),
-  ('numpy-2.5.4.dist-info/licenses/numpy/fft/pocketfft/LICENSE.md',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/licenses/numpy/fft/pocketfft/LICENSE.md',
-   'DATA'),
-  ('numpy-2.5.4.dist-info/licenses/numpy/random/src/splitmix64/LICENSE.md',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/licenses/numpy/random/src/splitmix64/LICENSE.md',
-   'DATA'),
-  ('numpy-2.5.4.dist-info/licenses/numpy/random/LICENSE.md',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/licenses/numpy/random/LICENSE.md',
-   'DATA'),
-  ('numpy-2.5.4.dist-info/licenses/numpy/_core/src/npysort/x86-simd-sort/LICENSE.md',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/licenses/numpy/_core/src/npysort/x86-simd-sort/LICENSE.md',
-   'DATA'),
-  ('numpy-2.5.4.dist-info/entry_points.txt',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/entry_points.txt',
-   'DATA'),
-  ('numpy-2.5.4.dist-info/licenses/numpy/_core/src/multiarray/dragon4_LICENSE.txt',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/licenses/numpy/_core/src/multiarray/dragon4_LICENSE.txt',
-   'DATA'),
-  ('numpy-2.5.4.dist-info/licenses/numpy/random/src/mt19937/LICENSE.md',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/licenses/numpy/random/src/mt19937/LICENSE.md',
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/licenses/numpy/linalg/lapack_lite/LICENSE.txt',
    'DATA'),
   ('numpy-2.5.4.dist-info/WHEEL',
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/WHEEL',
    'DATA'),
-  ('numpy-2.5.4.dist-info/INSTALLER',
+  ('numpy-2.5.4.dist-info/licenses/numpy/random/LICENSE.md',
    '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/INSTALLER',
-   'DATA'),
-  ('numpy-2.5.4.dist-info/RECORD',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/RECORD',
-   'DATA'),
-  ('numpy-2.5.4.dist-info/licenses/numpy/random/src/sfc64/LICENSE.md',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/licenses/numpy/random/src/sfc64/LICENSE.md',
-   'DATA'),
-  ('numpy-2.5.4.dist-info/licenses/numpy/_core/include/numpy/libdivide/LICENSE.txt',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/licenses/numpy/_core/include/numpy/libdivide/LICENSE.txt',
-   'DATA'),
-  ('numpy-2.5.4.dist-info/licenses/LICENSE.txt',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/licenses/LICENSE.txt',
-   'DATA'),
-  ('numpy-2.5.4.dist-info/licenses/numpy/linalg/lapack_lite/LICENSE.txt',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/licenses/numpy/linalg/lapack_lite/LICENSE.txt',
-   'DATA'),
-  ('numpy-2.5.4.dist-info/licenses/numpy/_core/src/umath/svml/LICENSE',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/licenses/numpy/_core/src/umath/svml/LICENSE',
-   'DATA'),
-  ('numpy-2.5.4.dist-info/licenses/numpy/_core/src/highway/LICENSE',
-   '/Users/ashok/Downloads/New books to go to '
-   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/licenses/numpy/_core/src/highway/LICENSE',
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/licenses/numpy/random/LICENSE.md',
    'DATA'),
   ('numpy-2.5.4.dist-info/licenses/numpy/random/src/distributions/LICENSE.md',
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/licenses/numpy/random/src/distributions/LICENSE.md',
    'DATA'),
+  ('numpy-2.5.4.dist-info/licenses/numpy/_core/src/npysort/x86-simd-sort/LICENSE.md',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/licenses/numpy/_core/src/npysort/x86-simd-sort/LICENSE.md',
+   'DATA'),
+  ('numpy-2.5.4.dist-info/INSTALLER',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/INSTALLER',
+   'DATA'),
+  ('numpy-2.5.4.dist-info/METADATA',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/METADATA',
+   'DATA'),
   ('numpy-2.5.4.dist-info/licenses/numpy/ma/LICENSE',
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/licenses/numpy/ma/LICENSE',
+   'DATA'),
+  ('numpy-2.5.4.dist-info/licenses/numpy/random/src/mt19937/LICENSE.md',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/licenses/numpy/random/src/mt19937/LICENSE.md',
+   'DATA'),
+  ('numpy-2.5.4.dist-info/licenses/numpy/_core/src/multiarray/dragon4_LICENSE.txt',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/licenses/numpy/_core/src/multiarray/dragon4_LICENSE.txt',
+   'DATA'),
+  ('numpy-2.5.4.dist-info/RECORD',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/RECORD',
+   'DATA'),
+  ('numpy-2.5.4.dist-info/licenses/numpy/random/src/splitmix64/LICENSE.md',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/licenses/numpy/random/src/splitmix64/LICENSE.md',
+   'DATA'),
+  ('numpy-2.5.4.dist-info/licenses/numpy/random/src/pcg64/LICENSE.md',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/licenses/numpy/random/src/pcg64/LICENSE.md',
+   'DATA'),
+  ('numpy-2.5.4.dist-info/licenses/numpy/_core/include/numpy/libdivide/LICENSE.txt',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/licenses/numpy/_core/include/numpy/libdivide/LICENSE.txt',
+   'DATA'),
+  ('numpy-2.5.4.dist-info/entry_points.txt',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/entry_points.txt',
    'DATA'),
   ('numpy-2.5.4.dist-info/licenses/numpy/_core/src/common/pythoncapi-compat/COPYING',
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/licenses/numpy/_core/src/common/pythoncapi-compat/COPYING',
    'DATA'),
+  ('numpy-2.5.4.dist-info/licenses/numpy/fft/pocketfft/LICENSE.md',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/licenses/numpy/fft/pocketfft/LICENSE.md',
+   'DATA'),
+  ('numpy-2.5.4.dist-info/licenses/numpy/_core/src/umath/svml/LICENSE',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/licenses/numpy/_core/src/umath/svml/LICENSE',
+   'DATA'),
+  ('numpy-2.5.4.dist-info/REQUESTED',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/REQUESTED',
+   'DATA'),
+  ('numpy-2.5.4.dist-info/licenses/LICENSE.txt',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/licenses/LICENSE.txt',
+   'DATA'),
   ('numpy-2.5.4.dist-info/licenses/numpy/random/src/philox/LICENSE.md',
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/licenses/numpy/random/src/philox/LICENSE.md',
+   'DATA'),
+  ('numpy-2.5.4.dist-info/licenses/numpy/_core/src/highway/LICENSE',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/licenses/numpy/_core/src/highway/LICENSE',
+   'DATA'),
+  ('numpy-2.5.4.dist-info/licenses/numpy/random/src/sfc64/LICENSE.md',
+   '/Users/ashok/Downloads/New books to go to '
+   'pocketdeck/InkForge/.venv/lib/python3.12/site-packages/numpy-2.5.4.dist-info/licenses/numpy/random/src/sfc64/LICENSE.md',
    'DATA'),
   ('base_library.zip',
    '/Users/ashok/Downloads/New books to go to '
    'pocketdeck/InkForge/build/InkForge/base_library.zip',
    'DATA'),
   ('liblzma.5.dylib', 'PIL/.dylibs/liblzma.5.dylib', 'SYMLINK'),
+  ('libtiff.6.dylib', 'PIL/.dylibs/libtiff.6.dylib', 'SYMLINK'),
   ('libwebpmux.3.dylib', 'PIL/.dylibs/libwebpmux.3.dylib', 'SYMLINK'),
   ('libwebp.7.dylib', 'PIL/.dylibs/libwebp.7.dylib', 'SYMLINK'),
-  ('libtiff.6.dylib', 'PIL/.dylibs/libtiff.6.dylib', 'SYMLINK'),
   ('libsharpyuv.0.dylib', 'PIL/.dylibs/libsharpyuv.0.dylib', 'SYMLINK'),
-  ('QtGui', 'PySide6/Qt/lib/QtGui.framework/Versions/A/QtGui', 'SYMLINK'),
   ('QtCore', 'PySide6/Qt/lib/QtCore.framework/Versions/A/QtCore', 'SYMLINK'),
+  ('QtGui', 'PySide6/Qt/lib/QtGui.framework/Versions/A/QtGui', 'SYMLINK'),
   ('QtSvg', 'PySide6/Qt/lib/QtSvg.framework/Versions/A/QtSvg', 'SYMLINK'),
   ('QtNetwork',
    'PySide6/Qt/lib/QtNetwork.framework/Versions/A/QtNetwork',
@@ -3522,19 +3522,19 @@
   ('libwebpdemux.2.dylib', 'PIL/.dylibs/libwebpdemux.2.dylib', 'SYMLINK'),
   ('libavif.16.4.2.dylib', 'PIL/.dylibs/libavif.16.4.2.dylib', 'SYMLINK'),
   ('liblcms2.2.dylib', 'PIL/.dylibs/liblcms2.2.dylib', 'SYMLINK'),
-  ('libxcb.1.1.0.dylib', 'PIL/.dylibs/libxcb.1.1.0.dylib', 'SYMLINK'),
   ('libz.1.3.1.zlib-ng.dylib',
    'PIL/.dylibs/libz.1.3.1.zlib-ng.dylib',
    'SYMLINK'),
   ('libjpeg.62.4.0.dylib', 'PIL/.dylibs/libjpeg.62.4.0.dylib', 'SYMLINK'),
   ('libopenjp2.2.5.4.dylib', 'PIL/.dylibs/libopenjp2.2.5.4.dylib', 'SYMLINK'),
+  ('libxcb.1.1.0.dylib', 'PIL/.dylibs/libxcb.1.1.0.dylib', 'SYMLINK'),
   ('libmupdfcpp.so', 'pymupdf/libmupdfcpp.so', 'SYMLINK'),
   ('libmupdf.dylib', 'pymupdf/libmupdf.dylib', 'SYMLINK'),
-  ('libpyside6.abi3.6.12.dylib',
-   'PySide6/libpyside6.abi3.6.12.dylib',
-   'SYMLINK'),
   ('libshiboken6.abi3.6.12.dylib',
    'shiboken6/libshiboken6.abi3.6.12.dylib',
+   'SYMLINK'),
+  ('libpyside6.abi3.6.12.dylib',
+   'PySide6/libpyside6.abi3.6.12.dylib',
    'SYMLINK'),
   ('QtDBus', 'PySide6/Qt/lib/QtDBus.framework/Versions/A/QtDBus', 'SYMLINK'),
   ('libXau.6.dylib', 'PIL/.dylibs/libXau.6.dylib', 'SYMLINK'),
@@ -3606,41 +3606,17 @@
    '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/Resources/Info.plist',
    'DATA'),
   ('Python.framework/Versions/Current', '3.12', 'SYMLINK')],
- [('weakref',
-   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/weakref.py',
+ [('operator',
+   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/operator.py',
    'PYMODULE'),
-  ('_collections_abc',
-   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/_collections_abc.py',
-   'PYMODULE'),
-  ('reprlib',
-   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/reprlib.py',
-   'PYMODULE'),
-  ('enum',
-   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/enum.py',
-   'PYMODULE'),
-  ('stat',
-   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/stat.py',
+  ('genericpath',
+   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/genericpath.py',
    'PYMODULE'),
   ('abc',
    '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/abc.py',
    'PYMODULE'),
-  ('codecs',
-   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/codecs.py',
-   'PYMODULE'),
-  ('linecache',
-   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/linecache.py',
-   'PYMODULE'),
-  ('sre_parse',
-   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/sre_parse.py',
-   'PYMODULE'),
-  ('collections.abc',
-   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/collections/abc.py',
-   'PYMODULE'),
-  ('collections',
-   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/collections/__init__.py',
-   'PYMODULE'),
-  ('posixpath',
-   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/posixpath.py',
+  ('sre_constants',
+   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/sre_constants.py',
    'PYMODULE'),
   ('encodings.zlib_codec',
    '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/encodings/zlib_codec.py',
@@ -4008,50 +3984,71 @@
   ('encodings',
    '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/encodings/__init__.py',
    'PYMODULE'),
-  ('_weakrefset',
-   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/_weakrefset.py',
+  ('reprlib',
+   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/reprlib.py',
    'PYMODULE'),
-  ('genericpath',
-   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/genericpath.py',
-   'PYMODULE'),
-  ('keyword',
-   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/keyword.py',
-   'PYMODULE'),
-  ('functools',
-   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/functools.py',
-   'PYMODULE'),
-  ('types',
-   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/types.py',
-   'PYMODULE'),
-  ('traceback',
-   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/traceback.py',
-   'PYMODULE'),
-  ('ntpath',
-   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/ntpath.py',
-   'PYMODULE'),
-  ('io',
-   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/io.py',
-   'PYMODULE'),
-  ('copyreg',
-   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/copyreg.py',
-   'PYMODULE'),
-  ('sre_constants',
-   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/sre_constants.py',
-   'PYMODULE'),
-  ('warnings',
-   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/warnings.py',
-   'PYMODULE'),
-  ('operator',
-   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/operator.py',
+  ('weakref',
+   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/weakref.py',
    'PYMODULE'),
   ('heapq',
    '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/heapq.py',
    'PYMODULE'),
-  ('locale',
-   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/locale.py',
+  ('keyword',
+   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/keyword.py',
+   'PYMODULE'),
+  ('_weakrefset',
+   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/_weakrefset.py',
+   'PYMODULE'),
+  ('_collections_abc',
+   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/_collections_abc.py',
+   'PYMODULE'),
+  ('linecache',
+   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/linecache.py',
+   'PYMODULE'),
+  ('types',
+   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/types.py',
+   'PYMODULE'),
+  ('functools',
+   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/functools.py',
+   'PYMODULE'),
+  ('io',
+   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/io.py',
+   'PYMODULE'),
+  ('codecs',
+   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/codecs.py',
+   'PYMODULE'),
+  ('posixpath',
+   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/posixpath.py',
+   'PYMODULE'),
+  ('collections.abc',
+   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/collections/abc.py',
+   'PYMODULE'),
+  ('collections',
+   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/collections/__init__.py',
+   'PYMODULE'),
+  ('traceback',
+   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/traceback.py',
+   'PYMODULE'),
+  ('warnings',
+   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/warnings.py',
+   'PYMODULE'),
+  ('stat',
+   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/stat.py',
    'PYMODULE'),
   ('sre_compile',
    '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/sre_compile.py',
+   'PYMODULE'),
+  ('sre_parse',
+   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/sre_parse.py',
+   'PYMODULE'),
+  ('enum',
+   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/enum.py',
+   'PYMODULE'),
+  ('copyreg',
+   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/copyreg.py',
+   'PYMODULE'),
+  ('locale',
+   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/locale.py',
    'PYMODULE'),
   ('re._parser',
    '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/re/_parser.py',
@@ -4067,6 +4064,9 @@
    'PYMODULE'),
   ('re',
    '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/re/__init__.py',
+   'PYMODULE'),
+  ('ntpath',
+   '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/ntpath.py',
    'PYMODULE'),
   ('os',
    '/opt/homebrew/Cellar/python@3.12/3.12.14/Frameworks/Python.framework/Versions/3.12/lib/python3.12/os.py',

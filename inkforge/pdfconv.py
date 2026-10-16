@@ -158,6 +158,76 @@ def _drop_latin_noise(line: str) -> str:
     return re.sub(r"[ \t]{2,}", " ", out).strip()
 
 
+_LEADER_LINE = re.compile(r"(?:\.\s?){5,}|…{3,}|·{4,}|_{5,}")
+_CLEAN_EN_WORD = re.compile(r"(?<![\w\u00c0-\u00ff])[A-Za-z][a-z]{2,}(?![\w\u00c0-\u00ff])")
+_CHAPTER_RE = re.compile(r"(?i)^\s*(?:part|chapter|schedule|book|appendix|section|ಭಾಗ|ಅಧ್ಯಾಯ|ಅನುಸೂಚಿ|ಪರಿಚ್ಛೇದ|ಪ್ರಕರಣ)\b")
+_ARTICLE_START = re.compile(r"^\s*(?:\d{1,3}[A-Zಎಬಸಡ]{0,2}\s*[.)]|\(\d{1,2}\)|\([a-zಅ-ಹ][\u0CBE-\u0CCD]?\)|\([ivx]{1,4}\))")
+_OCR_JUNK_LINE = re.compile(r"^[\W\d೦-೯_]{0,4}$|([\u0CBE-\u0CCD])\1{2,}|(?:[\u0CBE-\u0CCD]{4,})")
+
+
+def _strip_leader_spans(line: dict):
+    """'Name of the Union ........ 2' -> 'Name of the Union' (contents pages)."""
+    full = "".join(s["text"] for s in line["spans"])
+    m = _LEADER_LINE.search(full)
+    cut = m.start() if m else len(full)
+    out, pos = [], 0
+    for s in line["spans"]:
+        t = s["text"]
+        if pos >= cut:
+            break
+        keep = t[: max(0, cut - pos)]
+        if keep.strip():
+            out.append(dict(s, text=keep))
+        pos += len(t)
+    line["spans"] = out or [dict(line["spans"][0], text="")]
+    line["text"] = "".join(s["text"] for s in line["spans"]).rstrip()
+
+
+def _ocr_garbage(t: str, conf: float) -> bool:
+    """OCR noise from rules, ornaments and stains: many tiny 'words' or one repeated pattern."""
+    toks = t.split()
+    core = re.sub(r"[\s\W_]", "", "".join(dict.fromkeys(toks)))   # repeated whole words (ಮತ್ತೆ ಮತ್ತೆ) are fine
+    if 6 <= len(core) <= 16 and len(set(core)) / len(core) < (0.45 if len(core) >= 8 else 0.35):
+        return True   # short repeated pattern ('೯ಣರಣರಣಣ'); long real lines naturally reuse characters
+    if len(toks) >= 3 and sum(len(x) for x in toks) / len(toks) < 2.6 and conf < 85:
+        return True
+    return False
+
+
+def _fix_roman(t: str) -> str:
+    """'ಭಾಗ - 11' / 'ಅಧ್ಯಾಯ 1V' -> Roman numerals as printed."""
+    def fix(m):
+        tok = m.group(2).upper().replace("1", "I").replace("L", "I").replace("|", "I").replace("!", "I")
+        return m.group(1) + (tok if re.fullmatch(r"[IVXLC]+", tok) else m.group(2))
+    return re.sub(r"((?:ಭಾಗ|ಅಧ್ಯಾಯ|PART|CHAPTER)\s*[-–]?\s*)([0-9IVXLCivxlc|!]{1,6})\b", fix, t)
+
+
+def _norm_ocr_furn(t: str) -> str:
+    t = re.sub(r"[\d೦-೯]+", "#", t.lower())
+    t = re.sub(r"\b[ivxlc]+\b", "#", t)
+    return " ".join(t.split())
+
+
+def _clean_ocr_line(t: str) -> str:
+    """Remove dot leaders, scanner file names and OCR garbage from one recognised line."""
+    t = _SCAN_JUNK.sub("", t)
+    m = _LEADER_LINE.search(t)
+    if m:
+        t = t[: m.start()]
+    t = re.sub(r"\s*[.,:;]{4,}.*$", "", t)              # leader dots read as , . :
+    t = re.sub(r"(?:\s+[\d೦-೯]{1,4}[\-–]?){1,}\s*$", lambda m: "" if len(m.group(0).split()) >= 2 else m.group(0), t)
+    t = t.strip(" |_~")
+    if not t or _OCR_JUNK_LINE.search(t):
+        return ""
+    if KANNADA_RE.search(t) and kannada_quality(t) < 0.6:
+        return ""
+    # digit soup ('2೭ ೦ 24೬'): mostly digits/symbols with few letters
+    letters = len(re.findall(r"[A-Za-z\u0C85-\u0CB9]", t))
+    if letters < max(2, len(t) * 0.25):
+        return ""
+    return t
+
+
 # ====================================================================== OCR availability
 def _vendor_dir() -> str | None:
     """OCR engine + language data shipped inside InkForge.app (or ./vendor when run from source)."""
@@ -289,16 +359,28 @@ class PdfConverter:
         self.explicit_spaces = info["explicit_spaces"]
 
         mode = self.o.pdf_mode
+        self.plan = self._classify_pages(doc)
+        n_scan = sum(1 for k, _ in self.plan.values() if k == "scan")
+        if n_scan and n_scan < doc.page_count * 0.5:
+            # a few image-only pages in a text book are covers / full-page figures, not scans: keep the picture
+            for p_, (k, l) in list(self.plan.items()):
+                if k == "scan":
+                    self.plan[p_] = ("text", l)
+        kinds = Counter(k for k, _ in self.plan.values())
+        needs_ocr = kinds["ocr"] + kinds["scan"]
+        self.bilingual = False
         if mode == "auto":
-            if info["scanned_ratio"] > 0.5 or info["broken"] or info["chars"] < 200:
-                mode = "ocr" if self._ocr_usable(doc, info) else "imgflow"
-            else:
+            if needs_ocr == 0 and info["chars"] >= 200:
                 mode = "reflow"
+            elif self._ocr_usable(doc, info) or (kinds["text"] and not kinds["scan"]):
+                mode = "hybrid"
+            else:
+                mode = "imgflow"
         elif mode == "reflow" and (info["scanned_ratio"] > 0.5 or info["chars"] < 200):
-            mode = "ocr" if self._ocr_usable(doc, info) else "imgflow"
+            mode = "hybrid" if self._ocr_usable(doc, info) else "imgflow"
             self.warnings.append("This PDF has no usable text layer, so text reflow was not possible.")
-        if info["legacy"] and mode in ("reflow",):
-            self.warnings.append("This Kannada PDF uses a legacy (Nudi/Baraha) font; its text will look garbled.")
+        if mode == "hybrid" and not tesseract_path():
+            mode = "imgflow"
         why = ""
         if info["legacy"]:
             why = " (legacy Nudi/Baraha Kannada font)"
@@ -306,21 +388,92 @@ class PdfConverter:
             why = " (text layer is broken)"
         elif info["scanned_ratio"] > 0.5:
             why = " (scanned book)"
-        self.method = {"reflow": "Text reflow", "ocr": "OCR", "imgflow": "Image reflow", "pages": "Page images"}[mode] + why
+        if mode == "hybrid":
+            parts = []
+            if kinds["text"]:
+                parts.append(f"{kinds['text']} text pages")
+            if needs_ocr:
+                parts.append(f"{needs_ocr} OCR pages")
+            label = "OCR" if not kinds["text"] else "Text + OCR"
+            self.method = f"{label}{why}"
+            self.log("PDF plan: " + ", ".join(parts) + (f", {kinds['contents']} contents pages as images" if kinds["contents"] else ""))
+        else:
+            self.method = {"reflow": "Text reflow", "imgflow": "Image reflow", "pages": "Page images"}[mode] + why
         self.log(f"PDF method: {self.method}")
 
         if info["kannada"]:
             b.lang = "kn"
-        self._cover(doc, b, mode)
+        self._cover(doc, b, "ocr" if mode == "hybrid" else mode)
         if mode == "reflow":
-            self._reflow(doc, b)
-        elif mode == "ocr":
-            self._ocr(doc, b)
+            self._write_chapters(doc, b, self._reflow_blocks(doc, b, self._pages_from_start(doc)))
+        elif mode == "hybrid":
+            self._hybrid(doc, b)
         elif mode == "imgflow":
             self._imgflow(doc, b)
         else:
             self._pages(doc, b)
         return b.build(), {"method": self.method, "warnings": self.warnings}
+
+    def _pages_from_start(self, doc):
+        return list(range(1 if getattr(self, "cover_page", None) == 0 else 0, doc.page_count))
+
+    # ------------------------------------------------------------------ per-page plan
+    def _classify_pages(self, doc) -> dict:
+        """page -> (kind, lang). kind: text | ocr (bad text layer) | scan (no text) | contents | blank"""
+        plan = {}
+        self.contents_pages = set()
+        for p in range(doc.page_count):
+            page = doc[p]
+            t = page.get_text()
+            s = re.sub(r"\s", "", t)
+            leaders = len(_LEADER_LINE.findall(t))
+            if len(s) < 30:
+                area = page.rect.width * page.rect.height
+                img_area = sum(abs(i["bbox"][2] - i["bbox"][0]) * abs(i["bbox"][3] - i["bbox"][1]) for i in page.get_image_info())
+                plan[p] = ("scan", "") if img_area > area * 0.5 else ("blank", "")
+                continue
+            kn = len(KANNADA_RE.findall(t))
+            legacy = looks_like_legacy_kannada(t)
+            bad = legacy or (kn > 40 and kannada_quality(t) < 0.9) or pua_ratio(t) > 0.05 or \
+                t.count("\ufffd") > 10 or "(cid:" in t
+            if bad:
+                english_words = len(_CLEAN_EN_WORD.findall(t))
+                lang = "kan+eng" if english_words >= 12 else "kan"
+                plan[p] = ("contents" if leaders >= 4 else "ocr", lang)
+            else:
+                la = len(re.findall(r"[A-Za-z]", t))
+                plan[p] = ("text", "kn" if kn > la else "en")
+                if leaders >= 4:
+                    self.contents_pages.add(p)
+        return plan
+
+    # ------------------------------------------------------------------ hybrid: text pages + OCR pages
+    def _hybrid(self, doc, b: EpubBuilder):
+        pages = self._pages_from_start(doc)
+        text_pages = [p for p in pages if self.plan[p][0] in ("text", "blank")]
+        ocr_pages = [p for p in pages if self.plan[p][0] in ("ocr", "scan")]
+        img_pages = [p for p in pages if self.plan[p][0] == "contents"]
+        blocks = []
+        if text_pages:
+            blocks += self._reflow_blocks(doc, b, text_pages)
+        if ocr_pages:
+            blocks += self._ocr_blocks(doc, b, ocr_pages)
+        for p in img_pages:
+            im = imglib.trim_margins(self.render(doc[p], self.dev.width * 2.2))
+            im, la = imglib.process(im, self.dev.width, self.dev.height, self.o.grayscale, self.o.contrast)
+            data, mt = imglib.encode(im, self.o.jpeg_quality, prefer_png=la)
+            blocks.append(("fig", b.add_image(data, mt), p))
+        # page language, for bilingual books
+        self.page_lang = {}
+        for p in pages:
+            kind, lang = self.plan[p]
+            self.page_lang[p] = "kn" if lang.startswith("kn") or lang.startswith("kan") else ("en" if lang else "")
+        langs = Counter(v for v in self.page_lang.values() if v)
+        self.bilingual = len(langs) == 2 and min(langs.values()) >= 0.25 * sum(langs.values())
+        if self.bilingual:
+            self.log(f"Bilingual book: {langs['kn']} Kannada + {langs['en']} English pages, grouped by language")
+        blocks.sort(key=lambda x: x[-1])          # stable: keeps in-page order
+        self._write_chapters(doc, b, blocks)
 
     # ------------------------------------------------------------------ cover
     def _cover(self, doc, b: EpubBuilder, mode):
@@ -519,7 +672,7 @@ class PdfConverter:
                 if it["kind"] != "line":
                     continue
                 y = it["bbox"][1]
-                if y < Hh * 0.08 or it["bbox"][3] > Hh * 0.92:
+                if y < Hh * 0.12 or it["bbox"][3] > Hh * 0.9:
                     cnt[self._norm_furn(it["text"])] += 1
         thresh = max(3, int(n * 0.2))
         return {k for k, v in cnt.items() if v >= thresh and k}
@@ -530,12 +683,11 @@ class PdfConverter:
         t = re.sub(r"\b[ivxlc]+\b", "#", t)
         return " ".join(t.split())
 
-    def _reflow(self, doc, b: EpubBuilder):
+    def _reflow_blocks(self, doc, b: EpubBuilder, pages) -> list:
         n = doc.page_count
-        start = 1 if self.cover_page == 0 else 0
         pages_items = {}
-        for p in range(start, n):
-            self.step("Reading PDF text", (p + 1) / n * 0.7)
+        for k, p in enumerate(pages):
+            self.step("Reading PDF text", (k + 1) / len(pages) * 0.5)
             try:
                 pages_items[p] = self._page_lines(doc[p])
             except Exception as e:
@@ -548,8 +700,9 @@ class PdfConverter:
                 if it["kind"] == "line":
                     sizes[round(it["size"] * 2) / 2] += len(it["text"])
         body = sizes.most_common(1)[0][0] if sizes else 11
-        heading_sizes = sorted({s for s in sizes if s >= body * 1.18 and sizes[s] < sizes[body] * 0.5}, reverse=True)[:3]
-        kn = self.info["kannada"]
+        heading_sizes = sorted({s for s in sizes if s >= body * 1.15 and sizes[s] < sizes[body] * 0.5}, reverse=True)[:5]
+        kn = self.info["kannada"] and not getattr(self, "plan", None) or \
+            bool(getattr(self, "plan", None)) and sum(1 for p in pages if self.plan[p][1] == "kn") > len(pages) / 2
 
         def hlevel(sz):
             for k, s in enumerate(heading_sizes):
@@ -571,6 +724,8 @@ class PdfConverter:
                         blocks.append(("pre", "\n".join(cur["raw"]), cur["page"]))
                     elif cur.get("h"):
                         blocks.append(("h", cur["h"], html, cur["page"]))
+                    elif cur.get("fn"):
+                        blocks.append(("fn", html, cur["page"]))
                     else:
                         blocks.append(("p", html, cur["page"]))
             cur = None
@@ -578,15 +733,23 @@ class PdfConverter:
         for p in sorted(pages_items):
             Hh = doc[p].rect.height
             items = [it for it in pages_items[p] if not (it["kind"] == "line" and self._norm_furn(it["text"]) in furn
-                     and (it["bbox"][1] < Hh * 0.08 or it["bbox"][3] > Hh * 0.92))]
+                     and (it["bbox"][1] < Hh * 0.12 or it["bbox"][3] > Hh * 0.9))]
             items = [it for it in items if not (it["kind"] == "line" and re.fullmatch(r"\s*[\divxlcIVXLC\-–—.]{1,6}\s*", it["text"])
-                                               and (it["bbox"][1] < Hh * 0.1 or it["bbox"][3] > Hh * 0.9))]
+                                               and (it["bbox"][1] < Hh * 0.12 or it["bbox"][3] > Hh * 0.9))]
+            contents = p in getattr(self, "contents_pages", set())
+            if contents:   # page numbers of a printed contents list mean nothing in an EPUB
+                items = [it for it in items if not (it["kind"] == "line" and
+                                                    re.fullmatch(r"\s*(?:PAGES?|ಪುಟ(?:ಗಳು)?)?\s*[\d೦-೯ivxlcIVXLC\-–, ]*\s*", it["text"]))]
             lines = [i for i in items if i["kind"] == "line"]
             if lines:
                 col_x0 = statistics.median(sorted(l["bbox"][0] for l in lines)[: max(1, len(lines) // 3)])
                 col_x1 = max(l["bbox"][2] for l in lines)
             else:
                 col_x0 = col_x1 = 0
+            ln_only = [i for i in items if i["kind"] == "line"]
+            gaps = sorted(g for g in (ln_only[k + 1]["bbox"][1] - ln_only[k]["bbox"][3] for k in range(len(ln_only) - 1)) if g > -2)
+            med_gap = gaps[len(gaps) // 3] if gaps else 2.0
+            col_mid = (col_x0 + col_x1) / 2
             prev = None
             for it in items:
                 if it["kind"] == "fig":
@@ -597,8 +760,21 @@ class PdfConverter:
                     prev = None
                     continue
                 text = it["text"]
+                if _LEADER_LINE.search(text):
+                    _strip_leader_spans(it)
+                    text = it["text"]
+                    if not text.strip():
+                        continue
                 sz = round(it["size"] * 2) / 2
                 lvl = hlevel(sz) if len(text) < 160 else 0
+                w = it["bbox"][2] - it["bbox"][0]
+                centered = abs((it["bbox"][0] + it["bbox"][2]) / 2 - col_mid) < (col_x1 - col_x0) * 0.08 and \
+                    w < (col_x1 - col_x0) * 0.7
+                all_bold = all(sp["flags"] & 16 or re.search(r"(?i)bold|black|heavy", sp["font"]) for sp in it["spans"])
+                if not lvl and len(text.strip()) < 70 and not contents and \
+                        (_CHAPTER_RE.match(text) and (all_bold or centered) or centered and all_bold):
+                    lvl = 2 if _CHAPTER_RE.match(text) else 3
+                fn = sz <= body * 0.88 and it["bbox"][1] > Hh * 0.5 and not lvl
                 mono = all(s["flags"] & 8 or re.search(r"(?i)mono|courier|consol|menlo", s["font"]) for s in it["spans"])
                 if prev is not None:
                     gap = it["bbox"][1] - prev["bbox"][3]
@@ -606,15 +782,25 @@ class PdfConverter:
                 else:
                     gap, lh = 0, 0
                 new_para = (cur is None or prev is None or lvl != (cur.get("h") or 0) or bool(mono) != bool(cur.get("mono"))
-                            or gap > max(2.0, lh * 0.55)
-                            or (it["bbox"][0] - col_x0 > it["size"] * 0.9 and not mono and it["bbox"][0] < (col_x0 + col_x1) / 2)
+                            or fn != bool(cur.get("fn")) or (fn and re.match(r"^\s*(?:\d{1,3}[.)]|\*)", text))
+                            or gap > med_gap * 1.8 + 1.5
+                            or (prev is not None and it["bbox"][0] - prev["bbox"][0] > it["size"] * 0.8 and not mono
+                                and it["bbox"][0] < (col_x0 + col_x1) / 2 and not contents
+                                and (re.search(r"[.:;!?)”\"’—-]\s*$", prev["text"]) or prev["bbox"][2] < col_x1 - it["size"] * 3))
                             or (prev["bbox"][2] < col_x1 - it["size"] * 4 and re.search(r"[.!?:;\"”’)।॥]\s*$", prev["text"]))
                             or re.match(r"^\s*(?:[•●▪■◦\-–]|\d{1,3}[.)])\s", text)
-                            or it["bbox"][0] > (col_x0 + col_x1) / 2 or prev["bbox"][0] > (col_x0 + col_x1) / 2)
+                            or (it["bbox"][0] > (col_x0 + col_x1) / 2 or prev["bbox"][0] > (col_x0 + col_x1) / 2) and not centered)
+                if fn and cur is not None and cur.get("fn"):
+                    new_para = bool(re.match(r"^\s*(?:\d{1,3}\s*[.)]|\*)", text))   # footnotes break only at a new note
+                if contents and cur is not None and prev is not None and not lvl:
+                    # contents entry: a new entry starts with a number or a PART/CHAPTER line, else it wraps
+                    caps = re.sub(r"[^A-Za-z]", "", text)
+                    new_para = bool(re.match(r"^\s*(?:\d{1,3}[A-Z]{0,2}\.|[IVXLC]+\.|PART|CHAPTER|SCHEDULE|APPENDIX|PREAMBLE)", text)) \
+                        or bool(cur.get("h")) or (len(caps) > 3 and caps.isupper()) or all_bold
                 if prev is not None and gap > 0 and lh > 0 and not new_para:
                     line_gaps.append(gap / lh)
                 # a paragraph that ran over a page break continues if it did not end a sentence
-                if prev is None and cur is not None and not cur.get("h") and not lvl and not mono:
+                if prev is None and cur is not None and not cur.get("h") and not lvl and not mono and not fn and not cur.get("fn"):
                     last = cur["raw"][-1] if cur["raw"] else ""
                     starts_lower = text[:1].islower() or (kn and not re.match(r"^\s*[\d“\"(]", text))
                     if not re.search(r"[.!?:\"”’)।॥]\s*$", last) and (starts_lower or not re.match(r"^\s*[A-Z0-9“\"]", text)) \
@@ -624,12 +810,14 @@ class PdfConverter:
                         new_para = True
                 if new_para:
                     flush()
-                    cur = {"spans": [], "raw": [], "page": p, "h": lvl, "mono": mono}
+                    cur = {"spans": [], "raw": [], "page": p, "h": lvl, "mono": mono, "fn": fn}
                 self._append_line(cur, it, kn)
                 prev = it
-            # page boundary: keep cur open for continuation
+            # page boundary: keep cur open for continuation (footnotes never continue)
+            if cur is not None and cur.get("fn"):
+                flush()
         flush()
-        self._write_chapters(doc, b, blocks)
+        return blocks
 
     @staticmethod
     def _append_line(cur, line, kn):
@@ -697,33 +885,68 @@ class PdfConverter:
         return b.add_image(data, mt)
 
     def _write_chapters(self, doc, b: EpubBuilder, blocks):
+        """Split blocks into chapter files and build the table of contents.
+
+        Bilingual books (e.g. a Kannada page facing its English page) are regrouped so each language reads
+        continuously: all Kannada pages first, then all English pages, each a top-level TOC section."""
+        if not blocks:
+            raise BookError("No readable text was found in this PDF.")
         toc = self.chapter_plan(doc)
-        splits = self.split_points(doc, toc)
-        if not toc:
-            # no bookmarks: split at top-level headings, fall back to every 20 pages
-            hs = [(blk[-1], re.sub(r"<[^>]+>", "", blk[2])) for blk in blocks if blk[0] == "h" and blk[1] == 1]
-            if 2 <= len(hs) <= 400:
-                splits = sorted({p: t for p, t in reversed(hs)}.items())
-                if splits[0][0] > (blocks[0][-1] if blocks else 0):
-                    splits.insert(0, (blocks[0][-1], ""))
-        starts = [p for p, _ in splits] or [0]
-        chapters = [[] for _ in starts]
-        for blk in blocks:
-            p = blk[-1]
-            k = max(0, max((j for j, s in enumerate(starts) if s <= p), default=0))
-            chapters[k].append(blk)
-        # write, splitting oversize chapters (keeps page turns fast on the reader)
-        file_of_page = {}
-        page_anchor_done = set()
+        bilingual = getattr(self, "bilingual", False)
+        page_lang = getattr(self, "page_lang", {})
+        if bilingual:
+            rank = {"kn": 0, "en": 1}
+            blocks = sorted(blocks, key=lambda x: (rank.get(page_lang.get(x[-1], ""), 2), x[-1]))
+
+        def plain(html):
+            return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", html)).strip()
+
+        # chapter starts: (block index, title, level)
+        starts = []
+        if toc and not bilingual:
+            for lvl, t, pg in toc:
+                if lvl > 2:
+                    continue
+                i = next((i for i, blk in enumerate(blocks) if blk[-1] >= pg), None)
+                if i is not None:
+                    starts.append((i, t, lvl))
+        else:
+            for i, blk in enumerate(blocks):
+                if blk[0] == "h" and _CHAPTER_RE.match(plain(blk[2])):
+                    title = plain(blk[2])
+                    nxt = blocks[i + 1] if i + 1 < len(blocks) else None
+                    if nxt and nxt[0] == "h" and not _CHAPTER_RE.match(plain(nxt[2])) and len(plain(nxt[2])) < 70:
+                        title = f"{title} — {plain(nxt[2])}"
+                    starts.append((i, title[:90], 2 if bilingual else 1))
+            if len(starts) < 2:
+                starts = []
+                last = None
+                for i, blk in enumerate(blocks):
+                    chunk = blk[-1] // 20
+                    if chunk != last:
+                        starts.append((i, f"Pages {chunk * 20 + 1}–{min(chunk * 20 + 20, doc.page_count)}", 2 if bilingual else 1))
+                        last = chunk
+        if bilingual:
+            for lang, title in (("kn", "ಕನ್ನಡ ಆವೃತ್ತಿ"), ("en", "English version")):
+                i = next((i for i, blk in enumerate(blocks) if page_lang.get(blk[-1]) == lang), None)
+                if i is not None:
+                    starts.append((i, title, 1))
+        if not starts or starts[0][0] != 0:
+            starts.append((0, b.title, 1))
+        starts.sort(key=lambda x: (x[0], x[2]))
+        # merge starts at the same block (section + first part): keep both in the TOC, one file
+        file_starts = sorted({i for i, _, _ in starts})
+        toc_entries = []
         n = 0
-        for (sp, title), chunk in zip(splits or [(0, "")], chapters):
-            if not chunk:
-                continue
+        file_of_block = {}
+        for fi, st in enumerate(file_starts):
+            end = file_starts[fi + 1] if fi + 1 < len(file_starts) else len(blocks)
+            chunk = blocks[st:end]
             parts, cur, size = [], [], 0
             for blk in chunk:
                 cur.append(blk)
                 size += len(blk[1] if blk[0] != "h" else blk[2])
-                if size > 120_000 and blk[0] == "p":
+                if size > 100_000 and blk[0] == "p":
                     parts.append(cur)
                     cur, size = [], 0
             if cur:
@@ -731,39 +954,50 @@ class PdfConverter:
             for k, part in enumerate(parts):
                 n += 1
                 href = f"ch{n:03d}.xhtml"
-                html = []
+                if k == 0:
+                    file_of_block[st] = href
+                html, seen_pages, fn_open = [], set(), False
                 for blk in part:
                     pg = blk[-1]
-                    if pg not in page_anchor_done:
+                    if pg not in seen_pages:
                         html.append(f'<a id="pg{pg + 1}"></a>')
-                        page_anchor_done.add(pg)
-                        file_of_page[pg] = href
+                        seen_pages.add(pg)
+                    if blk[0] != "fn":
+                        fn_open = False
                     if blk[0] == "h":
                         lv = min(3, blk[1])
                         html.append(f'<h{lv} class="pdf-h{lv}">{blk[2]}</h{lv}>')
                     elif blk[0] == "p":
-                        cls = "pdf-p"
-                        if html and html[-1].startswith("<h"):
-                            cls += " pdf-first"
+                        cls = "pdf-p" + (" pdf-first" if html and html[-1].startswith("<h") else "")
                         html.append(f'<p class="{cls}">{blk[1]}</p>')
+                    elif blk[0] == "fn":
+                        if not fn_open:
+                            html.append('<hr class="fn-rule"/>')
+                            fn_open = True
+                        html.append(f'<p class="fn">{blk[1]}</p>')
                     elif blk[0] == "pre":
                         html.append(f"<pre>{esc(blk[1])}</pre>")
                     else:
                         html.append(f'<div class="pdf-fig"><img src="../{blk[1]}" alt=""/></div>')
-                b.page(href, title or b.title, "".join(html))
-                if k == 0 and title:
-                    b.toc.append((1, title, f"Text/{href}"))
-        # deeper bookmark levels point at page anchors
-        if toc:
+                title = next((t for i, t, l in starts if i == st), b.title)
+                b.page(href, title, "".join(html))
+        for i, t, lvl in starts:
+            if i in file_of_block:
+                toc_entries.append((lvl, t, f"Text/{file_of_block[i]}"))
+        b.toc = toc_entries
+        # PDF bookmarks deeper than level 2 point at page anchors
+        if toc and not bilingual:
+            page_file = {}
+            for i, blk in enumerate(blocks):
+                st = max(x for x in file_starts if x <= i)
+                page_file.setdefault(blk[-1], file_of_block.get(st))
             b.toc = []
-            for lvl, t, p in toc:
-                q = p
-                while q >= 0 and q not in file_of_page:
+            for lvl, t, pg in toc:
+                q = pg
+                while q >= 0 and q not in page_file:
                     q -= 1
-                if q >= 0:
-                    b.toc.append((lvl, t, f"Text/{file_of_page[q]}#pg{q + 1}"))
-        if n == 0:
-            raise BookError("No readable text was found in this PDF.")
+                if q >= 0 and page_file[q]:
+                    b.toc.append((lvl, t, f"Text/{page_file[q]}#pg{q + 1}"))
 
     # ------------------------------------------------------------------ OCR
     def _ocr_langs(self, info) -> str | None:
@@ -832,84 +1066,232 @@ class PdfConverter:
             except Exception:
                 return "", None
 
-    def _ocr(self, doc, b: EpubBuilder):
-        n = doc.page_count
-        start = 1 if self.cover_page == 0 else 0
-        kn = self.info["kannada"]
+    def _ocr_blocks(self, doc, b: EpubBuilder, pages) -> list:
+        self.dropped_pages = []
+        """OCR pages (per-page language) and rebuild paragraphs, headings and footnotes from Tesseract TSV."""
+        default_lang = getattr(self, "ocr_lang", None) or ("kan+eng" if self.info["kannada"] else "eng")
         results = {}
-
-        def work(p):
-            text, _ = self._ocr_page(doc[p], self.ocr_lang)
-            return p, text
-        # PyMuPDF documents are not thread-safe: render serially, OCR in parallel
         with ThreadPoolExecutor(max_workers=max(2, (os.cpu_count() or 4) // 2)) as ex:
             futs = []
-            for p in range(start, n):
+            for k, p in enumerate(pages):
+                lang = self.plan.get(p, ("", ""))[1] if hasattr(self, "plan") else ""
+                lang = lang if lang in ("kan", "kan+eng", "eng") else default_lang
                 im = self.render(doc[p], int(doc[p].rect.width * 300 / 72))
-                futs.append(ex.submit(self._ocr_image, p, im, self.ocr_lang))
-                self.step("Rendering pages for OCR", (p + 1) / n * 0.3)
+                futs.append(ex.submit(self._ocr_tsv, p, im, lang))
+                self.step("Rendering pages for OCR", (k + 1) / len(pages) * 0.25)
             for k, f in enumerate(futs):
-                p, text = f.result()
-                results[p] = text
-                self.step(f"OCR page {k + 1}/{len(futs)}", 0.3 + 0.7 * (k + 1) / len(futs))
+                p, lines, page_h = f.result()
+                results[p] = (lines, page_h)
+                self.step(f"OCR page {k + 1}/{len(futs)}", 0.25 + 0.7 * (k + 1) / len(futs))
+
+        if len(self.dropped_pages) > max(2, len(pages) * 0.03):
+            self.log(f"OCR filters removed confident text on pages {self.dropped_pages[:10]}")
+        # running heads / page numbers: first and last lines repeated across pages
+        furn = Counter()
+        for p, (lines, ph) in results.items():
+            for l in lines:
+                if l["top"] < ph * 0.12 or l["bottom"] > ph * 0.9:
+                    furn[_norm_ocr_furn(l["text"])] += 1
+        thresh = max(3, int(len(results) * 0.12))
+        furn = {k for k, v in furn.items() if v >= thresh and k and re.search(r"[A-Za-z\u0C85-\u0CB9]", k)}
+        furn_re = [re.compile(r"\s*" + re.escape(f).replace("\\#", r"[\d೦-೯]+").replace("\\ ", r"\s*") + r"\s*$", re.I)
+                   for f in furn if len(f) >= 6]
+
         blocks = []
         carry = None
         for p in sorted(results):
-            text = results[p]
-            paras = [x for x in re.split(r"\n\s*\n", text) if x.strip()]
-            if len(text.strip()) < 40:
-                href = self._fig(doc[p], list(doc[p].rect), b)
-                if href:
-                    blocks.append(("fig", href, p))
-                continue
-            all_lines = [l.strip() for l in text.splitlines() if l.strip()]
-            page_w = max((len(l) for l in all_lines), default=1)
-            # a page of short lines is poetry: every stanza keeps its line breaks
-            page_verse = len(all_lines) >= 4 and statistics.median(len(l) for l in all_lines) < (30 if kn else 38)
-            for k, para in enumerate(paras):
-                lines = [l.strip() for l in para.splitlines() if l.strip()]
-                lines = [l for l in lines if not _SCAN_JUNK.search(l)]
-                if kn:
-                    lines = [_drop_latin_noise(l) for l in lines]
-                    lines = [l for l in lines if l.strip()]
+            lines, ph = results[p]
+            kn_page = any(KANNADA_RE.search(l["text"]) for l in lines)
+            kept = []
+            for l in lines:
+                t = l["text"]
+                edge = l["top"] < ph * 0.12 or l["bottom"] > ph * 0.9
+                if _norm_ocr_furn(t) in furn or edge and re.fullmatch(r"[\[\]()\d೦-೯ivxlcIVXLC\-–—.,: ]{1,8}", t):
+                    continue
+                for fr in furn_re:            # running head glued to the end of a body line
+                    t2 = fr.sub("", t)
+                    if t2 != t and len(t2) > 3:
+                        l = dict(l, text=t2)
+                        break
+                kept.append(l)
+            if not kept:
                 if not lines:
+                    href = self._fig(doc[p], list(doc[p].rect), b)
+                    if href:
+                        blocks.append(("fig", href, p))
+                continue
+            hs = sorted(l["height"] for l in kept)
+            h_med = hs[len(hs) // 2]
+            lefts = sorted(l["left"] for l in kept)
+            x0, x1 = lefts[len(lefts) // 10], max(l["right"] for l in kept)
+            # group into tesseract paragraphs
+            paras, cur_key = [], None
+            # footnote zone: everything below the first small "1." / "*" line in the lower part of the page
+            fn_tops = [l["top"] for l in kept if l["height"] < h_med * 0.84 and l["top"] > ph * 0.55 and
+                       re.match(r"^\s*(?:[\d೦-೯]{1,3}\s*[.)…]|\*|[\d೦-೯]{1,3}\.{2,})", l["text"])]
+            fn_top = min(fn_tops) if fn_tops else None
+            for l in kept:
+                key = (l["block"], l["par"])
+                fn = fn_top is not None and l["top"] >= fn_top - 2
+                if key != cur_key or (paras and paras[-1]["fn"] != fn):
+                    paras.append({"lines": [], "fn": fn})
+                    cur_key = key
+                paras[-1]["lines"].append(l)
+            all_text = [l["text"] for l in kept]
+            page_w = max((len(t) for t in all_text), default=1)
+            page_verse = len(all_text) >= 4 and statistics.median(len(t) for t in all_text) < (30 if kn_page else 38)
+            # legal / list clauses "(ಎ) …", "(1) …", "12. …" always start their own paragraph
+            split = []
+            for para in paras:
+                cur_l = []
+                for l in para["lines"]:
+                    if cur_l and _ARTICLE_START.match(l["text"]) and not para["fn"]:
+                        split.append({"lines": cur_l, "fn": para["fn"]})
+                        cur_l = []
+                    cur_l.append(l)
+                if cur_l:
+                    split.append({"lines": cur_l, "fn": para["fn"]})
+            paras = split
+            fn_texts = [l["text"] for para in paras if para["fn"] for l in para["lines"]]
+            paras = [para for para in paras if not para["fn"]]
+            split = []
+            for para in paras:
+                ls_ = para["lines"]
+                while ls_ and _CHAPTER_RE.match(ls_[0]["text"]) and len(ls_[0]["text"]) < 60:
+                    split.append({"lines": [ls_[0]], "fn": False, "chapter": True})
+                    ls_ = ls_[1:]
+                    if ls_ and len(ls_[0]["text"]) < 45 and not re.search(r"[.,;:]$", ls_[0]["text"]) and \
+                            not _ARTICLE_START.match(ls_[0]["text"]):
+                        split.append({"lines": [ls_[0]], "fn": False, "title": True})
+                        ls_ = ls_[1:]
+                if ls_:
+                    split.append(dict(para, lines=ls_))
+            paras = split
+            for k, para in enumerate(paras):
+                pl = para["lines"]
+                texts = [l["text"] for l in pl]
+                punct_end = sum(1 for t in texts if re.search(r"[,;:!?.।॥]$", t)) / len(texts)
+                verse = len(texts) >= 2 and not any(_ARTICLE_START.match(t) for t in texts) and \
+                    (page_verse or statistics.median(len(t) for t in texts) < max(18, page_w * 0.55)
+                     or (len(texts) >= 3 and punct_end >= 0.6 and statistics.median(len(t) for t in texts) < page_w * 0.75))
+                single = len(pl) == 1
+                centered = single and pl[0]["left"] > x0 + (x1 - x0) * 0.12 and pl[0]["right"] < x1 - (x1 - x0) * 0.12 and \
+                    abs((pl[0]["left"] + pl[0]["right"]) / 2 - (x0 + x1) / 2) < (x1 - x0) * 0.1
+                tall = single and pl[0]["height"] > h_med * 1.5 and len(texts[0]) < 50 and \
+                    not re.search(r"[;,]$|ಮತ್ತು$|ಅಥವಾ$|\b(and|or)$", texts[0])
+                if para.get("chapter"):
+                    blocks.append(("h", 2, esc(cleanup_text(_fix_roman(texts[0]), kn_page)), p))
+                    carry = None
                     continue
-                if re.fullmatch(r"[\d\-–—.ivxlc ]{1,8}", " ".join(lines), re.I):
-                    continue  # page number
-                # verse: several short lines (well under the page's full line length) keep their breaks
-                punct_end = sum(1 for l in lines if re.search(r"[,;:!?.।॥]$", l)) / len(lines)
-                verse = len(lines) >= 2 and (page_verse or statistics.median(len(l) for l in lines) < max(18, page_w * 0.62)
-                                             or (len(lines) >= 3 and punct_end >= 0.6))
-                if verse:
-                    html = "<br/>".join(esc(cleanup_text(l, kn)) for l in lines)
-                    blocks.append(("p", html, p))
+                if para.get("title"):
+                    blocks.append(("h", 3, esc(cleanup_text(texts[0], kn_page)), p))
+                    carry = None
                     continue
-                joined = lines[0]
-                for l in lines[1:]:
-                    joined = dehyphenate_join(joined, l) if not kn else joined + " " + l
-                joined = cleanup_text(joined, kn)
-                if k == 0 and carry is not None and len(lines) > 1 and not page_verse and \
-                        not re.search(r"[.!?:\"”।॥]$", blocks[carry][1]):
+                joined_raw = " ".join(texts)
+                is_heading = single and len(joined_raw) < 90 and not re.search(r"[.,;:]$", joined_raw) and \
+                    (centered or tall or _CHAPTER_RE.match(joined_raw)) and not (page_verse and k > 0 and not tall)
+                if is_heading:
+                    blocks.append(("h", 2 if (tall or _CHAPTER_RE.match(joined_raw)) else 3, esc(cleanup_text(joined_raw, kn_page)), p))
+                    carry = None
+                    continue
+                if verse and not _ARTICLE_START.match(texts[0]):
+                    blocks.append(("p", "<br/>".join(esc(cleanup_text(t, kn_page)) for t in texts), p))
+                    carry = None
+                    continue
+                joined = texts[0]
+                for t in texts[1:]:
+                    joined = dehyphenate_join(joined, t) if not kn_page else joined + " " + t
+                joined = cleanup_text(joined, kn_page)
+                # paragraph running over from the previous OCR page
+                if k == 0 and carry is not None and not page_verse and not _ARTICLE_START.match(joined) and \
+                        not re.search(r"[.!?:\"”।॥\]]$", blocks[carry][1]):
                     blocks[carry] = ("p", blocks[carry][1] + " " + esc(joined), blocks[carry][2])
                     continue
-                if len(lines) == 1 and len(joined) < 60 and not re.search(r"[.,;:!?]$", joined) and \
-                        (joined[:1].isupper() or kn and k == 0) and not (page_verse and k > 0):
-                    blocks.append(("h", 2, esc(joined), p))
-                else:
-                    blocks.append(("p", esc(joined), p))
-            carry = len(blocks) - 1 if blocks and blocks[-1][0] == "p" else None
-        self._write_chapters(doc, b, blocks)
+                blocks.append(("p", esc(joined), p))
+            last_p = max((i for i, blk in enumerate(blocks) if blk[-1] == p and blk[0] == "p"), default=None)
+            carry = last_p
+            # footnotes go after the page's text; a new note starts at "1." / "2…" / "*"
+            note = []
+            for t in fn_texts:
+                if note and re.match(r"^\s*(?:[\d೦-೯]{1,3}\s*(?:[.)…]|\.{2,})|\*)", t):
+                    blocks.append(("fn", esc(cleanup_text(" ".join(note), kn_page)), p))
+                    note = []
+                note.append(t)
+            if note:
+                blocks.append(("fn", esc(cleanup_text(" ".join(note), kn_page)), p))
+        return blocks
 
-    def _ocr_image(self, p, im, lang):
+    def _ocr_tsv(self, p, im, lang):
+        """Run tesseract (TSV) and return cleaned lines with geometry and confidence."""
         with tempfile.TemporaryDirectory(dir=_ocr_tmp()) as td:
             ip = os.path.join(td, "p.png")
             im.save(ip)
             base = os.path.join(td, "out")
             try:
-                subprocess.run([tesseract_path(), ip, base, "-l", lang, "--psm", "3"], capture_output=True, timeout=300, env=tesseract_env())
-                return p, open(base + ".txt", encoding="utf-8", errors="replace").read()
+                subprocess.run([tesseract_path(), ip, base, "-l", lang, "--psm", "3", "tsv"],
+                               capture_output=True, timeout=300, env=tesseract_env())
+                rows = open(base + ".tsv", encoding="utf-8", errors="replace").read().splitlines()[1:]
             except Exception:
-                return p, ""
+                return p, [], im.height
+        lines = {}
+        order = []
+        for row in rows:
+            c = row.split("\t")
+            if len(c) < 12 or c[0] != "5":
+                continue
+            word = c[11].strip()
+            try:
+                conf = float(c[10])
+            except ValueError:
+                continue
+            if not word or conf < 0:
+                continue
+            key = (int(c[2]), int(c[3]), int(c[4]))
+            if key not in lines:
+                lines[key] = []
+                order.append(key)
+            lines[key].append((word, conf, int(c[6]), int(c[7]), int(c[8]), int(c[9])))
+        out = []
+        raw_chars = sum(len(w[0]) for key in order for w in lines[key] if w[1] >= 60)
+        for key in order:
+            ws = [w for w in lines[key] if w[1] >= 12 or KANNADA_RE.search(w[0]) and w[1] >= 5]
+            if not ws:
+                continue
+            text = " ".join(w[0] for w in ws)
+            conf = statistics.mean(w[1] for w in ws)
+            text = _clean_ocr_line(text)
+            if not text or conf < 35 or _ocr_garbage(text, conf):
+                continue
+            heights = sorted(w[5] for w in ws)
+            out.append({"text": text, "conf": conf, "block": key[0], "par": key[1],
+                        "left": min(w[2] for w in ws), "right": max(w[2] + w[4] for w in ws),
+                        "top": min(w[3] for w in ws), "bottom": max(w[3] + w[5] for w in ws),
+                        "height": heights[len(heights) // 2]})
+        kept_chars = sum(len(l["text"]) for l in out)
+        if raw_chars > 400 and kept_chars < raw_chars * 0.88:
+            self.dropped_pages.append(p + 1)      # filters removed confident text: reported, never silent
+        # chapter headings often carry Roman numerals set in a Latin font: re-read those lines with kan+eng
+        if lang == "kan" and "eng" in tesseract_langs():
+            for l in out:
+                if _CHAPTER_RE.match(l["text"]) and len(l["text"]) < 80:
+                    pad = max(4, l["height"] // 3)
+                    crop = im.crop((max(0, l["left"] - pad), max(0, l["top"] - pad),
+                                    min(im.width, l["right"] + pad), min(im.height, l["bottom"] + pad)))
+                    t2 = self._ocr_line(crop, "kan+eng")
+                    if t2 and _CHAPTER_RE.match(t2):
+                        l["text"] = _fix_roman(t2)
+        return p, out, im.height
+
+    def _ocr_line(self, im, lang) -> str:
+        with tempfile.TemporaryDirectory(dir=_ocr_tmp()) as td:
+            ip = os.path.join(td, "l.png")
+            im.save(ip)
+            try:
+                r = subprocess.run([tesseract_path(), ip, "stdout", "-l", lang, "--psm", "7"], capture_output=True,
+                                   timeout=60, env=tesseract_env())
+                return _clean_ocr_line(r.stdout.decode("utf-8", "replace").strip())
+            except Exception:
+                return ""
 
     # ------------------------------------------------------------------ image reflow
     def _imgflow(self, doc, b: EpubBuilder):

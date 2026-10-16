@@ -23,6 +23,7 @@ CHAR_MAP = {
     " ": " ", " ": " ", " ": " ", " ": " ", " ": " ", "‧": "·",
     "￼": "",
 }
+CHAR_MAP["\ufffd"] = ""   # replacement characters carry no information
 _CTRL_RE = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f-\x9f]")
 _PUA_RE = re.compile(r"[-]")
 
